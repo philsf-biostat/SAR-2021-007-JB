@@ -9,9 +9,9 @@
 # template p-value table
 tab_inf <- analytical %>%
   # select
-  select(-id, ) %>%
+  select(-ano, ) %>%
   tbl_summary(
-    by = group
+    by = local
   ) %>%
   # include study N
   add_overall() %>%

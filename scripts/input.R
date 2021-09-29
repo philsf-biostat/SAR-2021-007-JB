@@ -14,25 +14,18 @@ data.raw <- read_excel("dataset/capturas 2006 a 2013 Saudade.xls") %>%
 
 # data cleaning -----------------------------------------------------------
 
-# data.raw <- data.raw %>%
-#   filter() %>%
-#   select()
+data.raw <- data.raw %>%
+  # drop sepulturas não identificadas
+  # filter(!is.na(sepultura)) %>%
+  # adicionar id de cada sepultura/quadra
+  group_by(quadra, sepultura) %>%
+  mutate(id = cur_group_id(), .before = everything())
+  # select()
 
 # data wrangling ----------------------------------------------------------
 
-data.raw <- data.raw %>%
-  # Passo 1: pivotar para tabela longa
-  pivot_longer(
-    -ano,
-    names_to = c("tipo", "local"),
-    values_to = "eventos",
-    names_sep = "_",
-    ) %>%
-  # passo 2: pivotar de volta para ter as duas variáveis de interesse
-  pivot_wider(
-    names_from = tipo,
-    values_from = eventos,
-  )
+# data.raw <- data.raw %>%
+  
 
 # labels ------------------------------------------------------------------
 
@@ -46,14 +39,17 @@ data.raw <- data.raw %>%
 analytical <- data.raw %>%
   # select analytic variables
   select(
-    ano,
-    local,
+    id,
+    quadra,
+    sepultura,
+    data,
+    hora,
     capturas,
-    acidentes,
+    femeas_c_filhotes,
   )
 
 # mockup of analytical dataset for SAP and public SAR
-analytical_mockup <- tibble( ano = c( 1:3, "...", nrow(analytical) ) ) %>%
-  left_join(analytical %>% head(0) %>% mutate(ano=as.character(ano)), by = "ano") %>%
+analytical_mockup <- tibble( id = c( 1:3, "...", nrow(analytical) ) ) %>%
+  left_join(analytical %>% head(0) %>% mutate(id=as.character(id)), by = "id") %>%
   mutate_all(as.character) %>%
   replace(is.na(.), "")

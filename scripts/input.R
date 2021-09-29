@@ -2,7 +2,7 @@
 # library(data.table)
 library(tidyverse)
 library(readxl)
-# library(lubridate)
+library(lubridate)
 library(labelled)
 
 # data loading ------------------------------------------------------------
@@ -24,8 +24,13 @@ data.raw <- data.raw %>%
 
 # data wrangling ----------------------------------------------------------
 
-# data.raw <- data.raw %>%
-  
+data.raw <- data.raw %>%
+  # create date_time col
+  unite(date_time, data, hora) %>%
+  mutate(
+    date_time = str_remove(date_time, "_1899-12-31"),
+    date_time = ymd_hms(date_time)
+    )
 
 # labels ------------------------------------------------------------------
 
@@ -42,8 +47,7 @@ analytical <- data.raw %>%
     id,
     quadra,
     sepultura,
-    data,
-    hora,
+    date_time,
     capturas,
     femeas_c_filhotes,
   )

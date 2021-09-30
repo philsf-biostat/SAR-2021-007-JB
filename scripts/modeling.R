@@ -8,10 +8,28 @@ library(broom.mixed)
 
 # raw estimate ------------------------------------------------------------
 
-summary(glm(acidentes ~ capturas, analytical, family = "poisson"))
+modelo.glm <- glm(capturas ~ date_time:id, analytical, family = "poisson")
+modelo.glm %>%
+  summary()
+
+modelo.glm %>%
+  tidy()
+
+modelo.glm %>%
+  glance()
 
 # adjusted ----------------------------------------------------------------
 
-summary(glm(acidentes ~ capturas + local, analytical, family = "poisson"))
+modelo.glmm.min <- glmer(capturas ~  (1 | quadra / sepultura), analytical, family = "poisson")
 
-modelo <- glmer(acidentes ~ capturas + ano + (1| local), analytical, family = "poisson")
+modelo.glmm.min %>%
+  summary()
+
+modelo.glmm.min %>%
+  tidy()
+
+modelo.glmm.min %>%
+  glance()
+
+data.raw %>%
+  glmer(formula = capturas  ~ femeas_c_filhotes + temp_max_int + u_r_ext_percent + ( 1 | quadra), family = "poisson")

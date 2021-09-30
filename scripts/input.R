@@ -36,7 +36,7 @@ data.raw <- data.raw %>%
 
 data.raw <- data.raw %>%
   set_variable_labels(
-    capturas = "Captura Noturna",
+    capturas = "Núm. capturas",
   )
 
 # analytical dataset ------------------------------------------------------
@@ -49,6 +49,8 @@ analytical <- data.raw %>%
     sepultura,
     date_time,
     capturas,
+    temp_max_int,
+    u_r_ext_percent,
     femeas_c_filhotes,
   )
 

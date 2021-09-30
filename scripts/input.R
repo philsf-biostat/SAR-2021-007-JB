@@ -19,7 +19,8 @@ data.raw <- data.raw %>%
   # filter(!is.na(sepultura)) %>%
   # adicionar id de cada sepultura/quadra
   group_by(quadra, sepultura) %>%
-  mutate(id = cur_group_id(), .before = everything())
+  mutate(id = cur_group_id(), .before = everything()) %>%
+  ungroup()
   # select()
 
 # data wrangling ----------------------------------------------------------

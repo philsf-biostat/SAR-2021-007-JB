@@ -1,14 +1,13 @@
-# title
+# Incidence rates of scorpion accidents in Urban Planning Areas of Americana/SP in 1998-2018
 
-Objective
+Characterize the Urban Planning Areas and estimate the incidence rates of scorpion accidents of Americana/SP in 1998-2018.
 
-Statistical Analysis for PERSON (PLACE, yyyy)
+Statistical Analysis for José Brites (Secretaria Municipal de Saúde de Americana/SP, 2021).
 
 ## Analyses performed
 
 1. Descriptive analysis
 1. Inferential analysis
-1. Power analysis
 1. Statistical models
 
 ## Documents

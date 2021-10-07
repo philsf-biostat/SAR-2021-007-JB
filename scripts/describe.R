@@ -46,7 +46,3 @@ tab_desc <- analytical %>%
   bold_labels() %>%
   modify_table_styling(columns = "label", align = "c")
 
-# describe fixed characteristics (which cannot be included in the model)
-upa_desc <- analytical %>%
-  group_by(upa) %>%
-  distinct(area, hydrography, railway, recycling_no)

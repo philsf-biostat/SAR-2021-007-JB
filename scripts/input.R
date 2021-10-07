@@ -37,11 +37,12 @@ upa.raw <- upa.raw %>%
     railway = railway_lines_meters,
     recycling_mun = municipal_recycling_centers_units,
   ) %>%
+  mutate(upa = as.numeric(str_remove(upa, "UPA-"))) %>%
   # identify UPAs with a cemitery
   mutate(
     cemitery = case_when(
-      upa %in% c(4, 6) ~ "1",
-      TRUE ~ "0"
+      upa %in% c(4, 6) ~ 1,
+      TRUE ~ 0
     )
   )
 
@@ -55,6 +56,11 @@ data.raw <- data.raw %>%
     year = factor(year),
     )
 
+upa.raw <- upa.raw %>%
+  mutate(
+    upa = factor(upa),
+  )
+
 # labels ------------------------------------------------------------------
 
 data.raw <- data.raw %>%
@@ -67,10 +73,19 @@ data.raw <- data.raw %>%
 
 upa.raw <- upa.raw %>%
   set_variable_labels(
+    upa = "Urban Planning Area",
+    sewage = "Sewage network (km)",
+    rain = "Rainwater network (km)",
+    green = "Green areas (m2)",
+    garbage = "Irregular garbage disposal areas",
+    recycling_inf = "Informal recycling units",
+    junk = "Junkyard units",
+    burn = "Burned-out areas (foci)",
     area = "Area (km²)",
     hydrography = "Hydrography area (m²)",
     railway = "Railway lines (m)",
     recycling_mun = "Municipal recycling units",
+    cemitery = "Presence of a cemitery",
   )
 
 # analytical dataset ------------------------------------------------------

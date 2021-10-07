@@ -10,13 +10,23 @@ library(gt)
 
 # setup gtsummary theme
 theme_gtsummary_mean_sd() # mean/sd
-theme_gtsummary_language(language = "pt") # traduzir
+# theme_gtsummary_language(language = "pt") # traduzir
 
 # exploratory -------------------------------------------------------------
 
 # overall description
-# analytical %>%
-#   skimr::skim()
+analytical %>%
+  skimr::skim()
+
+# checar condicoes de poisson/quasi-poisson
+analytical %>%
+  group_by(upa) %>%
+  summarise(
+    ac_m = mean(accidents),
+    ac_sd = sd(accidents),
+    # cap_m = mean(capturas, na.rm = TRUE),
+    # cap_sd = sd(capturas, na.rm = TRUE),
+    )
 
 # minimum detectable effect size
 # interpret_d(0.5)
@@ -26,9 +36,10 @@ theme_gtsummary_language(language = "pt") # traduzir
 
 tab_desc <- analytical %>%
   # select
-  select(-id, ) %>%
+  select(-year, -upa) %>%
   tbl_summary(
-    # by = group
+    # by = upa,
+    type = list(railway = "continuous"),
   ) %>%
   # modify_caption(caption = "**Tabela 1** Características demográficas") %>%
   # modify_header(label ~ "**Características dos pacientes**") %>%

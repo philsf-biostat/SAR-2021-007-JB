@@ -7,11 +7,16 @@
 # tables ------------------------------------------------------------------
 
 # template p-value table
-tab_inf <- analytical %>%
+# tab_inf <- 
+analytical %>%
   # select
-  select(-id, ) %>%
+  select(-year, ) %>%
   tbl_summary(
-    by = group
+    by = upa,
+    type = list(
+      recyling_no = "continuous",
+      railway = "continuous"
+    ),
   ) %>%
   # include study N
   add_overall() %>%

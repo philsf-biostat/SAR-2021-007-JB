@@ -12,10 +12,10 @@ model.glm.min <- glm(
   accidents ~ upa,
   analytical, family = "poisson")
 model.glm.year <- glm(
-  accidents ~ upa + as.factor(year),
+  accidents ~ upa + year,
   analytical, family = "poisson")
 model.glm.full <- glm(
-  accidents ~ upa + as.factor(year) + pop,
+  accidents ~ upa + year + pop,
   analytical, family = "poisson")
 
 model.glm.min %>%
@@ -52,7 +52,7 @@ model.glm.full %>%
 # adjusted ----------------------------------------------------------------
 
 # modelo.glmm.min <- 
-# glmer(accidents ~ upa  + as.factor(year) + (1 | upa), analytical, family = "poisson")
+# glmer(accidents ~ upa  + year + (1 | upa), analytical, family = "poisson")
 
 # modelo.glmm.min %>%
 #   summary()

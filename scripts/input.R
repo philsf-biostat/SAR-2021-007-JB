@@ -32,6 +32,7 @@ data.raw <- data.raw %>%
     upa = factor(upa),
     accidents = as.integer(accidents),
     pop = as.integer(pop),
+    year = factor(year),
     )
 
 # labels ------------------------------------------------------------------

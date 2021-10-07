@@ -22,7 +22,7 @@ data.raw <- data.raw %>%
     area = urban_territorial_area_km2,
     hydrography = hydrography_m2,
     railway = railway_lines_meters,
-    recyling_no = municipal_recycling_centers_units,
+    recycling_no = municipal_recycling_centers_units,
   )
 
 # data wrangling ----------------------------------------------------------
@@ -45,7 +45,7 @@ data.raw <- data.raw %>%
     area = "Area (km²)",
     hydrography = "Hydrography area (m²)",
     railway = "Railway lines (m)",
-    recyling_no = "Number of recycling units",
+    recycling_no = "Number of recycling units",
   )
 
 # analytical dataset ------------------------------------------------------

@@ -1,45 +1,37 @@
-<!-- Instruções -->
+# Incidence rates of scorpion accidents in Urban Planning Areas of Americana/SP in 1998-2018
 
-<!-- - substituir yyyy-NNN-XX -->
-<!-- - v01: substituir mmm01/mmm02 pela milestone -->
-<!-- - v02: substituir ppp01/ppp02 pelo projeto -->
-<!-- - Remover esse bloco -->
+Characterize the Urban Planning Areas and estimate the incidence rates of scorpion accidents of Americana/SP in 1998-2018.
 
-# título
+Statistical Analysis for José Brites (Secretaria Municipal de Saúde de Americana/SP, 2021).
 
-Objetivo
+## Analyses performed
 
-Análise Estatística para PESSOA (LOCAL, aaaa)
+1. Descriptive analysis
+1. Inferential analysis
+1. Statistical models
 
-## Análises realizadas
+## Documents
 
-1. Análise descritiva
-1. Análise inferencial
-1. Análise de poder
-1. Modelagem estatística
+### Analytical Plan (SAP)
 
-## Documentos
-
-### Plano Analítico (SAP)
-
-<!-- - [Visualização online][sapviz-v02] -->
+<!-- - [Online visualization][sapviz-v02] -->
 <!-- - [Download][sappdf-v02] -->
 
-- [Visualização online][sapviz-v01]
+- [Online visualization][sapviz-v01]
 - [PDF][sappdf-v01]
 
-### Relatório de Análise Estatística (SAR)
+### Statistical Analysis Report (SAR)
 
-<!-- - [Visualização online][reportviz-v02] -->
+<!-- - [Online visualization][reportviz-v02] -->
 <!-- - [Download][pdf-v02] -->
 
-- [Visualização online][reportviz-v01]
+- [Online visualization][reportviz-v01]
 - [PDF][pdf-v01]
 
-## Portfólio
+## Portfolio
 
-Esta análise está incluída no portfólio do consultor.
-Outras análises também podem ser vistas em:
+This analysis is included in the consultant's portfolio.
+Other analyses performed can also be seen at:
 
 https://philsf-biostat.github.io/
 
@@ -47,15 +39,15 @@ https://philsf-biostat.github.io/
 
 [sapviz-v01]: report/SAP-2021-007-JB-v01.md
 [sapviz-v02]: report/SAP-2021-007-JB-v02.md
-[sappdf-v01]: https://docs.google.com/viewer?url=https://github.com/philsf-biostat/SAR-2021-007-JB/report/SAP-2021-007-JB-v01.pdf?raw=true
-[sappdf-v02]: https://docs.google.com/viewer?url=https://github.com/philsf-biostat/SAR-2021-007-JB/report/SAP-2021-007-JB-v02.pdf?raw=true
+[sappdf-v01]: https://docs.google.com/viewer?url=https://github.com/philsf-biostat/SAR-2021-007-JB/raw/main/report/SAP-2021-007-JB-v01.pdf
+[sappdf-v02]: https://docs.google.com/viewer?url=https://github.com/philsf-biostat/SAR-2021-007-JB/raw/main/report/SAP-2021-007-JB-v02.pdf
 
 [reportviz-v01]: report/SAR-2021-007-JB-v01.md
 [reportviz-v02]: report/SAR-2021-007-JB-v02.md
-[pdf-v01]: https://docs.google.com/viewer?url=https://github.com/philsf-biostat/SAR-2021-007-JB/report/SAR-2021-007-JB-v01.pdf?raw=true
-[pdf-v02]: https://docs.google.com/viewer?url=https://github.com/philsf-biostat/SAR-2021-007-JB/report/SAR-2021-007-JB-v02.pdf?raw=true
-[docx-v01]: https://docs.google.com/viewer?url=https://github.com/philsf-biostat/SAR-2021-007-JB/report/SAR-2021-007-JB-v01.docx?raw=true
-[docx-v02]: https://docs.google.com/viewer?url=https://github.com/philsf-biostat/SAR-2021-007-JB/report/SAR-2021-007-JB-v02.docx?raw=true
+[pdf-v01]: https://docs.google.com/viewer?url=https://github.com/philsf-biostat/SAR-2021-007-JB/raw/main/report/SAR-2021-007-JB-v01.pdf
+[pdf-v02]: https://docs.google.com/viewer?url=https://github.com/philsf-biostat/SAR-2021-007-JB/raw/main/report/SAR-2021-007-JB-v02.pdf
+[docx-v01]: https://docs.google.com/viewer?url=https://github.com/philsf-biostat/SAR-2021-007-JB/raw/main/report/SAR-2021-007-JB-v01.docx
+[docx-v02]: https://docs.google.com/viewer?url=https://github.com/philsf-biostat/SAR-2021-007-JB/raw/main/report/SAR-2021-007-JB-v02.docx
 
 [releases]: https://github.com/philsf-biostat/SAR-2021-007-JB/releases/
 [milestone-v01]: https://github.com/philsf-biostat/SAR-2021-007-JB/milestone/mmm01

@@ -20,12 +20,12 @@ analytical %>%
 
 # checar condicoes de poisson/quasi-poisson
 analytical %>%
-  group_by(local) %>%
+  group_by(upa) %>%
   summarise(
-    ac_m = mean(acidentes),
-    ac_sd = sd(acidentes),
-    cap_m = mean(capturas, na.rm = TRUE),
-    cap_sd = sd(capturas, na.rm = TRUE),
+    ac_m = mean(accidents),
+    ac_sd = sd(accidents),
+    # cap_m = mean(capturas, na.rm = TRUE),
+    # cap_sd = sd(capturas, na.rm = TRUE),
     )
 
 # minimum detectable effect size
@@ -36,12 +36,12 @@ analytical %>%
 
 tab_desc <- analytical %>%
   # select
-  select(-ano, ) %>%
+  select(-year, -upa) %>%
   tbl_summary(
-    # by = group
+    # by = upa,
+    type = list(railway = "continuous"),
   ) %>%
   # modify_caption(caption = "**Tabela 1** Características demográficas") %>%
   # modify_header(label ~ "**Características dos pacientes**") %>%
   bold_labels() %>%
   modify_table_styling(columns = "label", align = "c")
-

@@ -14,9 +14,16 @@ data.raw <- read_excel("dataset/APAsAno.xlsx") %>%
 
 # data cleaning -----------------------------------------------------------
 
-# data.raw <- data.raw %>%
+data.raw <- data.raw %>%
 # filter() %>%
   # select()
+  rename(
+    pop = number_of_inhabitants,
+    area = urban_territorial_area_km2,
+    hydrography = hydrography_m2,
+    railway = railway_lines_meters,
+    recyling_no = municipal_recycling_centers_units,
+  )
 
 # data wrangling ----------------------------------------------------------
 
@@ -24,7 +31,7 @@ data.raw <- data.raw %>%
   mutate(
     upa = factor(upa),
     accidents = as.integer(accidents),
-    number_of_inhabitants = as.integer(number_of_inhabitants),
+    pop = as.integer(pop),
     )
 
 # labels ------------------------------------------------------------------
@@ -34,11 +41,11 @@ data.raw <- data.raw %>%
     year = "Year",
     upa = "Urban Planning Area",
     accidents = "Number of accidents",
-    number_of_inhabitants = "Population",
-    urban_territorial_area_km2 = "Area (km²)",
-    hydrography_m2 = "Hydrography area (m²)",
-    railway_lines_meters = "Railway lines (m)",
-    municipal_recycling_centers_units = "Number of recycling units",
+    pop = "Population",
+    area = "Area (km²)",
+    hydrography = "Hydrography area (m²)",
+    railway = "Railway lines (m)",
+    recyling_no = "Number of recycling units",
   )
 
 # analytical dataset ------------------------------------------------------

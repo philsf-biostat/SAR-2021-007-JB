@@ -24,6 +24,7 @@ analytical %>%
   summarise(
     ac_m = mean(accidents),
     ac_sd = sd(accidents),
+    cv = ac_sd/ac_m,
     # cap_m = mean(capturas, na.rm = TRUE),
     # cap_sd = sd(capturas, na.rm = TRUE),
     )

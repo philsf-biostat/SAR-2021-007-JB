@@ -99,6 +99,17 @@ This analysis was performed using statistical software `R` version `r getRversio
 #   )
 ```
 
+## Modeling
+
+```{r tab_mod}
+tab_mod %>%
+  as_kable(
+    align = "lccccccccc",
+    caption = "**Table 2** caption"
+  )
+```
+
+
 # Exceptions and Observations
 
 # Conclusions

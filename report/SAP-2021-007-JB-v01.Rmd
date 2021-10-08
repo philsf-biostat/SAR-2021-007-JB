@@ -91,7 +91,12 @@ The analytical dataset will be included in the private version of the report, an
 
 ## Primary and secondary outcomes
 
+Primary outcome will be defined as the incidence rate of scorpion accidents in each APU.
+For each APU the incidence rates will be computed as the IRR, relative to the reference APU.
+
 ## Covariates
+
+Incidence estimate will be adjusted by Year, and then by Year, all other available covariates.
 
 # Statistical methods
 

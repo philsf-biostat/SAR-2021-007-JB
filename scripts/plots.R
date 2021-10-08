@@ -33,6 +33,8 @@ gg.hist <- upa.raw %>%
   select(-cemitery) %>%
   pivot_longer(-upa, names_to = "var", values_to = "val") %>%
   ggplot(aes(val)) +
-  geom_histogram(bins = 5, fill = ff.col) +
+  # cool facet trick from https://stackoverflow.com/questions/3695497 by JWilliman
+  geom_histogram(bins = 5, fill = ff.col, aes(y = ..count../tapply(..count.., ..PANEL.., sum)[..PANEL..])) +
+  scale_y_continuous(labels = scales::label_percent(accuracy = 1)) +
   facet_wrap(~ var, scales = "free", ncol = 3) +
-  labs(title = "Distributions of APU characteristics", x = "")
+  labs(title = "Distributions of APU characteristics", x = "", y = "")

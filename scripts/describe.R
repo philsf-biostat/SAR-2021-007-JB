@@ -34,12 +34,13 @@ analytical %>%
 
 # tables ------------------------------------------------------------------
 
-tab_desc <- analytical %>%
+tab_desc <- upa.raw %>%
   # select
-  select(-year, -upa) %>%
+  select(-upa, ) %>%
   tbl_summary(
     # by = upa,
-    type = list(railway = "continuous"),
+    type = list(where(is.numeric) ~ "continuous2", cemitery ~ "dichotomous"),
+    statistic = all_continuous() ~ c("{mean} ({sd})", "{median} ({p25}, {p75})", "{min}, {max}")
   ) %>%
   # modify_caption(caption = "**Tabela 1** Características demográficas") %>%
   # modify_header(label ~ "**Características dos pacientes**") %>%

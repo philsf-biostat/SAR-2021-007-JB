@@ -13,6 +13,15 @@ theme_update(
   legend.position = "top"
 )
 
+gg <- upa.raw %>%
+  select(-cemitery) %>%
+  pivot_longer(-upa, names_to = "var", values_to = "val") %>%
+  ggplot(aes(val)) +
+  scale_color_brewer(palette = ff.pal) +
+  scale_fill_brewer(palette = ff.pal) +
+  xlab("") + ylab("") +
+  facet_wrap(~ var, scales = "free", ncol = 3)
+
 # plots -------------------------------------------------------------------
 
 # gg <- ggplot(analytical, aes(outcome, fill = group)) +
@@ -21,20 +30,12 @@ theme_update(
 #   scale_fill_brewer(palette = ff.pal) +
 #   labs()
 
- gg.dens <- upa.raw %>%
-  select(-cemitery) %>%
-  pivot_longer(-upa, names_to = "var", values_to = "val") %>%
-  ggplot(aes(val)) +
+gg.dens <- gg +
   geom_density(fill = ff.col) +
-  facet_wrap(~ var, scales = "free", ncol = 3) +
-  labs(title = "Distribution densities of APU characteristics", x = "")
- 
-gg.hist <- upa.raw %>%
-  select(-cemitery) %>%
-  pivot_longer(-upa, names_to = "var", values_to = "val") %>%
-  ggplot(aes(val)) +
-  # cool facet trick from https://stackoverflow.com/questions/3695497 by JWilliman
-  geom_histogram(bins = 5, fill = ff.col, aes(y = ..count../tapply(..count.., ..PANEL.., sum)[..PANEL..])) +
+  labs(title = "Distribution densities of APU characteristics")
+
+# cool facet trick from https://stackoverflow.com/questions/3695497 by JWilliman
+gg.hist <- gg +
+  geom_histogram(bins = 5, aes(y = ..count../tapply(..count.., ..PANEL.., sum)[..PANEL..]), fill = ff.col) +
   scale_y_continuous(labels = scales::label_percent(accuracy = 1)) +
-  facet_wrap(~ var, scales = "free", ncol = 3) +
-  labs(title = "Distributions of APU characteristics", x = "", y = "")
+  labs(title = "Distributions of APU characteristics")

@@ -1,6 +1,6 @@
 # setup -------------------------------------------------------------------
-height <- 8
-width <- 8
+height <- 16.5
+width <- 16.5
 units <- "cm"
 
 # publication ready tables ------------------------------------------------
@@ -13,4 +13,5 @@ units <- "cm"
 
 # save plots --------------------------------------------------------------
 
-ggsave(filename = "figures/outcome.png", plot = gg, height = height, width = width, units = units)
+ggsave(filename = "figures/density.png", plot = gg.dens, height = height, width = width, units = units)
+ggsave(filename = "figures/histogram.png", plot = gg.hist, height = height, width = width, units = units)

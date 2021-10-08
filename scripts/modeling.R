@@ -6,7 +6,7 @@ library(broom)
 # library(lmerTest)
 # library(broom.mixed)
 
-# raw estimate ------------------------------------------------------------
+# number of accidents -----------------------------------------------------
 
 model.glm.min <- glm(
   accidents ~ upa,
@@ -18,13 +18,38 @@ model.glm.full <- glm(
   accidents ~ upa + year + pop,
   analytical, family = "poisson")
 
+# accidents/pop -----------------------------------------------------------
+
+model.glm.min.offset <- glm(
+  accidents ~ upa + offset(log(pop)),
+  analytical, family = "poisson")
+model.glm.year.offset <- glm(
+  accidents ~ upa + year + offset(log(pop)),
+  analytical, family = "poisson")
+model.glm.full.offset <- glm(
+  accidents ~ upa + year + pop + offset(log(pop)),
+  analytical, family = "poisson")
+
+# random effects on upa ---------------------------------------------------
+
+# model.glmm.min <- glmer(accidents ~ upa + (1 | upa), analytical, family = "poisson")
+
+# model.glmm.min %>%
+#   summary()
+# model.glmm.min %>%
+#   tidy()
+# model.glmm.min %>%
+#   glance()
+
+# diagnostics -------------------------------------------------------------
+
+# number of accidents
 model.glm.min %>%
   summary()
 model.glm.year %>%
   summary()
 model.glm.full %>%
   summary()
-
 
 model.glm.min %>%
   tidy()
@@ -39,6 +64,18 @@ model.glm.year %>%
   glance()
 model.glm.full %>%
   glance()
+
+anova(model.glm.min, model.glm.year, model.glm.full, test = "Chisq")
+AIC(model.glm.min, model.glm.year, model.glm.full)
+
+# Accident incidence proportion
+model.glm.min.offset %>% summary()
+model.glm.year.offset %>% tidy()
+model.glm.full.offset %>% glance()
+anova(model.glm.min.offset, model.glm.year.offset, model.glm.full.offset, test = "Chisq")
+AIC(model.glm.min.offset, model.glm.year.offset, model.glm.full.offset)
+
+# final model -------------------------------------------------------------
 
 tab_mod.crude <- model.glm.min %>%
   tbl_regression(exp = TRUE, include = upa)
@@ -57,20 +94,3 @@ tab_mod <- tbl_merge(
   ),
   tab_spanner = c("Crude estimate", "Adjusted by Year", "Adjusted by Year and Population")
 )
-
-# adjusted ----------------------------------------------------------------
-
-# modelo.glmm.min <- 
-# glmer(accidents ~ upa  + year + (1 | upa), analytical, family = "poisson")
-
-# modelo.glmm.min %>%
-#   summary()
-# 
-# modelo.glmm.min %>%
-#   tidy()
-# 
-# modelo.glmm.min %>%
-#   glance()
-# 
-# data.raw %>%
-#   glmer(formula = capturas  ~ femeas_c_filhotes + temp_max_int + u_r_ext_percent + ( 1 | quadra), family = "poisson")

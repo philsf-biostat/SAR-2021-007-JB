@@ -40,14 +40,23 @@ model.glm.year %>%
 model.glm.full %>%
   glance()
 
-model.glm.min %>%
-  tbl_regression(exp = TRUE)
+tab_mod.crude <- model.glm.min %>%
+  tbl_regression(exp = TRUE, include = upa)
 
-model.glm.year %>%
-  tbl_regression(exp = TRUE)
+tab_mod.year <- model.glm.year %>%
+  tbl_regression(exp = TRUE, include = upa)
 
-model.glm.full %>%
-  tbl_regression(exp = TRUE)
+tab_mod.full <- model.glm.full %>%
+  tbl_regression(exp = TRUE, include = upa)
+
+tab_mod <- tbl_merge(
+  list(
+    tab_mod.crude,
+    tab_mod.year,
+    tab_mod.full
+  ),
+  tab_spanner = c("Crude estimate", "Adjusted by Year", "Adjusted by Year and Population")
+)
 
 # adjusted ----------------------------------------------------------------
 

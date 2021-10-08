@@ -82,11 +82,11 @@ This analysis was performed using statistical software `R` version `r getRversio
 ## Study population and follow up
 
 ```{r tab_desc}
-# tab_desc %>%
-#   as_kable(
-#     align = "lccc",
-#     caption = "**Table 1** caption"
-#   )
+tab_desc %>%
+  as_kable(
+    align = "lccc",
+    caption = "**Table 1** caption"
+  )
 ```
 
 ## Inferential analysis

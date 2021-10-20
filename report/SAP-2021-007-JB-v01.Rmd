@@ -51,9 +51,10 @@ kable(history)
 
 # Abbreviations
 
-- d: Cohen's D effect size
-- IQR: interquartile range
+<!-- - d: Cohen's D effect size -->
+<!-- - IQR: interquartile range -->
 - SD: standard deviation
+- UPA: Urban planning area
 
 # Introduction
 
@@ -104,10 +105,12 @@ Incidence estimate will be adjusted by Year, and then by Year, all other availab
 
 ### Descriptive analyses
 
-The epidemiological profile of each study group
+<!-- The epidemiological profile of each study group -->
 <!-- groups -->
-will be described at baseline.
-Demographic and clinical variables will be described as
+<!-- will be described at baseline. -->
+<!-- Demographic and clinical variables will be described as -->
+The characteristics of the UPAs will be described at the year 2018, which will be hypothesized to be representative of static characteristics.
+All variables collected will be described as 
 mean (SD)
 <!-- median (IQR) -->
 or as counts and proportions (%), as appropriate.

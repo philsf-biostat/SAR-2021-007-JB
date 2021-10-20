@@ -8,42 +8,42 @@ library(broom)
 
 # accident count ----------------------------------------------------------
 
-model.glm.min <- glm(
+model.min <- glm(
   accidents ~ upa,
   analytical, family = "poisson")
-model.glm.year <- glm(
+model.year <- glm(
   accidents ~ upa + year,
   analytical, family = "poisson")
-model.glm.full <- glm(
+model.full <- glm(
   accidents ~ upa + year + pop,
   analytical, family = "poisson")
 
 # accident rate -----------------------------------------------------------
 
-model.glm.min <- glm(
+model.min <- glm(
   accidents ~ upa -1,
   offset = log(pop),
   analytical, family = "poisson")
-model.glm.year <- glm(
+model.year <- glm(
   accidents ~ upa + year -1,
   offset = log(pop),
   analytical, family = "poisson")
-model.glm.full <- glm(
+model.full <- glm(
   accidents ~ upa + year + pop -1,
   offset = log(pop),
   analytical, family = "poisson")
 
 # random effects on upa ---------------------------------------------------
 
-model.mm.min <- glmer(
+model.min <- glmer(
   accidents ~ upa + ( time + pop -1| upa) -1,
   offset = log(time),
   analytical, family = poisson)
-model.mm.year <- glmer(
+model.year <- glmer(
   accidents ~ upa + time + ( time + pop -1| upa) -1,
   offset = log(time),
   analytical, family = poisson)
-model.mm.full <- glmer(
+model.full <- glmer(
   accidents ~ upa + time + pop + ( time + pop -1| upa) -1,
   offset = log(time),
   analytical, family = poisson)
@@ -51,41 +51,44 @@ model.mm.full <- glmer(
 # diagnostics -------------------------------------------------------------
 
 # number of accidents
-model.glm.min %>%
+model.min %>%
   summary()
-model.glm.year %>%
+model.year %>%
   summary()
-model.glm.full %>%
+model.full %>%
   summary()
 
-model.glm.min %>%
+model.min %>%
   tidy()
-model.glm.year %>%
+model.year %>%
   tidy()
-model.glm.full %>%
+model.full %>%
   tidy()
 
-model.glm.min %>%
+model.min %>%
   glance()
-model.glm.year %>%
+model.year %>%
   glance()
-model.glm.full %>%
+model.full %>%
   glance()
 
-anova(model.glm.min, model.glm.year, model.glm.full, test = "Chisq")
-AIC(model.glm.min, model.glm.year, model.glm.full)
-
+anova(model.min, model.year, model.full, test = "Chisq")
+AIC(model.min, model.year, model.full)
 
 # final model -------------------------------------------------------------
 
-tab_mod.crude <- model.glm.min %>%
-  tbl_regression(exp = TRUE, include = upa)
-
-tab_mod.year <- model.glm.year %>%
-  tbl_regression(exp = TRUE, include = upa)
-
-tab_mod.full <- model.glm.full %>%
-  tbl_regression(exp = TRUE, include = upa)
+tab_mod.crude <- model.min %>%
+  tbl_regression(exp = TRUE,
+                 include = upa,
+                 )
+tab_mod.year <- model.year %>%
+  tbl_regression(exp = TRUE,
+                 include = upa,
+                 )
+tab_mod.full <- model.full %>%
+  tbl_regression(exp = TRUE,
+                 include = upa,
+                 )
 
 tab_mod <- tbl_merge(
   list(

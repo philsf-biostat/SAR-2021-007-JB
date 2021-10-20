@@ -6,7 +6,7 @@ library(broom)
 # library(lmerTest)
 # library(broom.mixed)
 
-# number of accidents -----------------------------------------------------
+# accident count ----------------------------------------------------------
 
 model.glm.min <- glm(
   accidents ~ upa,
@@ -18,16 +18,19 @@ model.glm.full <- glm(
   accidents ~ upa + year + pop,
   analytical, family = "poisson")
 
-# accidents/pop -----------------------------------------------------------
+# accident rate -----------------------------------------------------------
 
-model.glm.min.offset <- glm(
-  accidents ~ upa + offset(log(pop)),
+model.glm.min <- glm(
+  accidents ~ upa -1,
+  offset = log(pop),
   analytical, family = "poisson")
-model.glm.year.offset <- glm(
-  accidents ~ upa + year + offset(log(pop)),
+model.glm.year <- glm(
+  accidents ~ upa + year -1,
+  offset = log(pop),
   analytical, family = "poisson")
-model.glm.full.offset <- glm(
-  accidents ~ upa + year + pop + offset(log(pop)),
+model.glm.full <- glm(
+  accidents ~ upa + year + pop -1,
+  offset = log(pop),
   analytical, family = "poisson")
 
 # random effects on upa ---------------------------------------------------
@@ -68,12 +71,6 @@ model.glm.full %>%
 anova(model.glm.min, model.glm.year, model.glm.full, test = "Chisq")
 AIC(model.glm.min, model.glm.year, model.glm.full)
 
-# Accident incidence proportion
-model.glm.min.offset %>% summary()
-model.glm.year.offset %>% tidy()
-model.glm.full.offset %>% glance()
-anova(model.glm.min.offset, model.glm.year.offset, model.glm.full.offset, test = "Chisq")
-AIC(model.glm.min.offset, model.glm.year.offset, model.glm.full.offset)
 
 # final model -------------------------------------------------------------
 

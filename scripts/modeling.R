@@ -2,36 +2,36 @@
 # library(gt)
 library(gtsummary)
 # library(moderndive)
-library(broom)
-# library(lmerTest)
-# library(broom.mixed)
+# library(broom)
+library(lmerTest)
+library(broom.mixed)
 
 # accident count ----------------------------------------------------------
 
-model.min <- glm(
-  accidents ~ upa,
-  analytical, family = "poisson")
-model.year <- glm(
-  accidents ~ upa + year,
-  analytical, family = "poisson")
-model.full <- glm(
-  accidents ~ upa + year + pop,
-  analytical, family = "poisson")
+# model.min <- glm(
+#   accidents ~ upa,
+#   analytical, family = "poisson")
+# model.year <- glm(
+#   accidents ~ upa + year,
+#   analytical, family = "poisson")
+# model.full <- glm(
+#   accidents ~ upa + year + pop,
+#   analytical, family = "poisson")
 
 # accident rate -----------------------------------------------------------
 
-model.min <- glm(
-  accidents ~ upa -1,
-  offset = log(pop),
-  analytical, family = "poisson")
-model.year <- glm(
-  accidents ~ upa + year -1,
-  offset = log(pop),
-  analytical, family = "poisson")
-model.full <- glm(
-  accidents ~ upa + year + pop -1,
-  offset = log(pop),
-  analytical, family = "poisson")
+# model.min <- glm(
+#   accidents ~ upa -1,
+#   offset = log(pop),
+#   analytical, family = "poisson")
+# model.year <- glm(
+#   accidents ~ upa + year -1,
+#   offset = log(pop),
+#   analytical, family = "poisson")
+# model.full <- glm(
+#   accidents ~ upa + year + pop -1,
+#   offset = log(pop),
+#   analytical, family = "poisson")
 
 # random effects on upa ---------------------------------------------------
 

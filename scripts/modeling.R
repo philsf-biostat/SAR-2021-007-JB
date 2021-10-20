@@ -35,14 +35,18 @@ model.glm.full <- glm(
 
 # random effects on upa ---------------------------------------------------
 
-# model.glmm.min <- glmer(accidents ~ upa + (1 | upa), analytical, family = "poisson")
-
-# model.glmm.min %>%
-#   summary()
-# model.glmm.min %>%
-#   tidy()
-# model.glmm.min %>%
-#   glance()
+model.mm.min <- glmer(
+  accidents ~ upa + ( time + pop -1| upa) -1,
+  offset = log(time),
+  analytical, family = poisson)
+model.mm.year <- glmer(
+  accidents ~ upa + time + ( time + pop -1| upa) -1,
+  offset = log(time),
+  analytical, family = poisson)
+model.mm.full <- glmer(
+  accidents ~ upa + time + pop + ( time + pop -1| upa) -1,
+  offset = log(time),
+  analytical, family = poisson)
 
 # diagnostics -------------------------------------------------------------
 

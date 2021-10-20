@@ -52,9 +52,11 @@ data.raw <- data.raw %>%
   mutate(
     upa = factor(upa),
     accidents = as.integer(accidents),
-    pop = as.integer(pop),
+    pop = pop/1000,
+    time = year - min(year) + 1, # rescale to start at 1
     year = factor(year),
-    )
+    # year = scale(year),
+  )
 
 upa.raw <- upa.raw %>%
   mutate(
@@ -66,6 +68,7 @@ upa.raw <- upa.raw %>%
 data.raw <- data.raw %>%
   set_variable_labels(
     year = "Year",
+    time = "Year",
     upa = "Urban Planning Area",
     accidents = "Number of accidents",
     pop = "Population",

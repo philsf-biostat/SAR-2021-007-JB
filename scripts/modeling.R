@@ -29,6 +29,7 @@ model.year <- vglm(
   accidents ~ upa + time -1,
   offset = log(pop),
   analytical, family = "pospoisson")
+# to include interaction, consider using dummy variables for upa
 model.full <- vglm(
   accidents ~ upa + time + pop -1,
   offset = log(pop),

@@ -59,22 +59,22 @@ model.year %>%
 model.full %>%
   summary()
 
-model.min %>%
-  tidy()
-model.year %>%
-  tidy()
-model.full %>%
-  tidy()
-
-model.min %>%
-  glance()
-model.year %>%
-  glance()
-model.full %>%
-  glance()
-
-anova(model.min, model.year, model.full, test = "Chisq")
-AIC(model.min, model.year, model.full)
+# model.min %>%
+#   tidy()
+# model.year %>%
+#   tidy()
+# model.full %>%
+#   tidy()
+# 
+# model.min %>%
+#   glance()
+# model.year %>%
+#   glance()
+# model.full %>%
+#   glance()
+# 
+# anova(model.min, model.year, model.full, test = "Chisq")
+# AIC(model.min, model.year, model.full)
 
 # final model -------------------------------------------------------------
 

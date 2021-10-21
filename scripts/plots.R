@@ -10,7 +10,8 @@ theme_set(
   theme_classic()
 )
 theme_update(
-  legend.position = "top"
+  legend.position = "top",
+  # legend.title = element_blank(),
 )
 
 gg <- upa.raw %>%
@@ -40,10 +41,16 @@ gg.hist <- gg +
   scale_y_continuous(labels = scales::label_percent(accuracy = 1)) +
   labs(title = "Distributions of APU characteristics")
 
-analytical %>%
+gg.pop <- analytical %>%
   ggplot(aes(year, pop, group = upa, col = upa)) +
-  geom_line()
+  scale_color_brewer(palette = ff.pal) +
+  ylab("Population (per 10000)") +
+  xlab(NULL) +
+  geom_line(size = .7)
 
-analytical %>%
+gg.rate <- analytical %>%
   ggplot(aes(year, accidents/pop, group = upa, col = upa)) +
-  geom_line()
+  scale_color_brewer(palette = ff.pal) +
+  ylab("Observed incidence rate (per 10000)") +
+  xlab(NULL) +
+  geom_line(size = .7, alpha = .8)

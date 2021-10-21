@@ -53,9 +53,8 @@ data.raw <- data.raw %>%
     upa = factor(upa),
     accidents = as.integer(accidents),
     pop = pop/10000,
-    time = year - min(year) + 1, # rescale to start at 1
-    year = factor(year),
-    # year = scale(year),
+    time = year - min(year) + 1, # recenter to start at 1
+    # year = factor(year),
   )
 
 upa.raw <- upa.raw %>%

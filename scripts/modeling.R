@@ -1,10 +1,11 @@
 # setup -------------------------------------------------------------------
 # library(gt)
 library(gtsummary)
+library(VGAM)
 # library(moderndive)
-# library(broom)
-library(lmerTest)
-library(broom.mixed)
+library(broom)
+# library(lmerTest)
+# library(broom.mixed)
 
 # accident count ----------------------------------------------------------
 
@@ -20,33 +21,33 @@ library(broom.mixed)
 
 # accident rate -----------------------------------------------------------
 
-# model.min <- glm(
-#   accidents ~ upa -1,
-#   offset = log(pop),
-#   analytical, family = "poisson")
-# model.year <- glm(
-#   accidents ~ upa + year -1,
-#   offset = log(pop),
-#   analytical, family = "poisson")
-# model.full <- glm(
-#   accidents ~ upa + year + pop -1,
-#   offset = log(pop),
-#   analytical, family = "poisson")
+model.min <- vglm(
+  accidents ~ upa -1,
+  offset = log(pop),
+  analytical, family = "pospoisson")
+model.year <- vglm(
+  accidents ~ upa + year -1,
+  offset = log(pop),
+  analytical, family = "pospoisson")
+model.full <- vglm(
+  accidents ~ upa + year + pop -1,
+  offset = log(pop),
+  analytical, family = "pospoisson")
 
 # random effects on upa ---------------------------------------------------
 
-model.min <- glmer(
-  accidents ~ upa + ( time + pop -1| upa) -1,
-  offset = log(time),
-  analytical, family = poisson)
-model.year <- glmer(
-  accidents ~ upa + time + ( time + pop -1| upa) -1,
-  offset = log(time),
-  analytical, family = poisson)
-model.full <- glmer(
-  accidents ~ upa + time + pop + ( time + pop -1| upa) -1,
-  offset = log(time),
-  analytical, family = poisson)
+# model.min <- glmer(
+#   accidents ~ upa + ( time + pop -1| upa) -1,
+#   offset = log(pop),
+#   analytical, family = poisson)
+# model.year <- glmer(
+#   accidents ~ upa + time + ( time + pop -1| upa) -1,
+#   offset = log(pop),
+#   analytical, family = poisson)
+# model.full <- glmer(
+#   accidents ~ upa + time + pop + ( time + pop -1| upa) -1,
+#   offset = log(pop),
+#   analytical, family = poisson)
 
 # diagnostics -------------------------------------------------------------
 

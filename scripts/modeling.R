@@ -26,11 +26,11 @@ model.min <- vglm(
   offset = log(pop),
   analytical, family = "pospoisson")
 model.year <- vglm(
-  accidents ~ upa + year -1,
+  accidents ~ upa + time -1,
   offset = log(pop),
   analytical, family = "pospoisson")
 model.full <- vglm(
-  accidents ~ upa + year + pop -1,
+  accidents ~ upa + time + pop -1,
   offset = log(pop),
   analytical, family = "pospoisson")
 

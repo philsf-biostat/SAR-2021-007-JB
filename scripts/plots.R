@@ -39,3 +39,7 @@ gg.hist <- gg +
   geom_histogram(bins = 5, aes(y = ..count../tapply(..count.., ..PANEL.., sum)[..PANEL..]), fill = ff.col) +
   scale_y_continuous(labels = scales::label_percent(accuracy = 1)) +
   labs(title = "Distributions of APU characteristics")
+
+analytical %>%
+  ggplot(aes(year, pop, group = upa, col = upa)) +
+  geom_line()

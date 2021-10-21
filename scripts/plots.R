@@ -43,3 +43,7 @@ gg.hist <- gg +
 analytical %>%
   ggplot(aes(year, pop, group = upa, col = upa)) +
   geom_line()
+
+analytical %>%
+  ggplot(aes(year, accidents/pop, group = upa, col = upa)) +
+  geom_line()

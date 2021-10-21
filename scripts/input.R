@@ -52,7 +52,7 @@ data.raw <- data.raw %>%
   mutate(
     upa = factor(upa),
     accidents = as.integer(accidents),
-    pop = pop/1000,
+    pop = pop/10000,
     time = year - min(year) + 1, # rescale to start at 1
     year = factor(year),
     # year = scale(year),

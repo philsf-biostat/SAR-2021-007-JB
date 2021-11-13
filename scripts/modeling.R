@@ -98,5 +98,5 @@ tab_mod <- tbl_merge(
     tab_mod.year,
     tab_mod.full
   ),
-  tab_spanner = c("Crude estimate", "Adjusted by Year", "Fully adjusted")
+  tab_spanner = c("**Crude estimate**", "**Adjusted by Year**", "**Fully adjusted**")
 )

@@ -2,7 +2,7 @@
 title: "Analytical Plan for Incidence rates of scorpion accidents in Urban Planning Areas of Americana/SP in 1998-2018"
 subtitle: 'DOCUMENT: SAP-2021-007-JB-v01'
 author: '**From:** Felipe Figueiredo **To:** ___'
-date: '**Date:** yyyy-mm-dd'
+# date: 'yyyy-mm-dd'
 output:
   html_document:
     fig_caption: yes
@@ -35,6 +35,8 @@ panderOptions('table.split.table', 160)
 ```
 
 ---
+
+**Analytical Plan for Incidence rates of scorpion accidents in Urban Planning Areas of Americana/SP in 1998-2018**
 
 **Document version**
 
@@ -164,5 +166,5 @@ This analysis will be performed using statistical software `R` version `r getRve
 
 Both this analytical plan and the corresponding analysis report (**SAR-2021-007-JB-v01**) can be downloaded in the following address:
 
-https://github.com/philsf-biostat/SAR-2021-007-JB/
+<https://github.com/philsf-biostat/SAR-2021-007-JB/>
 

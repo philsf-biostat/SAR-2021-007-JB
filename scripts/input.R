@@ -57,9 +57,10 @@ data.raw <- data.raw %>%
   mutate(
     upa = factor(upa),
     accidents = as.integer(accidents),
-    pop = as.integer(pop),
-    year = factor(year),
-    )
+    pop = pop/10000,
+    time = year - min(year) + 1, # recenter to start at 1
+    # year = factor(year),
+  )
 
 upa.raw <- upa.raw %>%
   # Unit conversion
@@ -82,6 +83,7 @@ upa.raw <- upa.raw %>%
 data.raw <- data.raw %>%
   set_variable_labels(
     year = "Year",
+    time = "Year",
     upa = "Urban Planning Area",
     accidents = "Number of accidents",
     pop = "Population",

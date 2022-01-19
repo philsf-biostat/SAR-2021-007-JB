@@ -11,6 +11,11 @@ units <- "cm"
 #   as_rtf() %>%
 #   writeLines(con = "report/SAR-2021-007-JB-v01-T2.rtf")
 
+tab_mod %>%
+    as_gt() %>%
+    as_rtf() %>%
+    writeLines(con = "report/SAR-2021-007-JB-v01-T2.rtf")
+
 # save plots --------------------------------------------------------------
 
 ggsave(filename = "figures/density.png", plot = gg.dens, height = 16, width = 16, units = units)

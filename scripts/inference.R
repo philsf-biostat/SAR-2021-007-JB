@@ -1,7 +1,4 @@
 # setup -------------------------------------------------------------------
-# library(tableone)
-# library(gt)
-# library(gtsummary)
 # library(infer)
 
 # tables ------------------------------------------------------------------
@@ -35,12 +32,16 @@ analytical %>%
 # Template Cohen's D table (obs: does NOT compute p)
 # tab_inf <- analytical %>%
 #   # select
-#   select(-id, ) %>%
+#   select(
+#     -id,
+#   ) %>%
 #   tbl_summary(
-#     by = group
+#     by = group,
 #   ) %>%
 #   add_difference(
 #     test = all_continuous() ~ "cohens_d",
+#     # ANCOVA
+#     adj.vars = c(sex, age, bmi),
 #   ) %>%
 #   modify_header(estimate ~ '**d**') %>%
 #   bold_labels()

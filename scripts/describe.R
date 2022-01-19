@@ -7,8 +7,11 @@
 library(gtsummary)
 library(gt)
 # library(effectsize)
+# library(finalfit) # missing_compare
 
 # setup gtsummary theme
+theme_gtsummary_journal("jama")
+theme_gtsummary_compact()
 theme_gtsummary_mean_sd() # mean/sd
 # theme_gtsummary_language(language = "pt") # traduzir
 
@@ -31,7 +34,6 @@ analytical %>%
 # minimum detectable effect size
 # interpret_d(0.5)
 
-
 # tables ------------------------------------------------------------------
 
 tab_desc <- analytical %>%
@@ -45,4 +47,3 @@ tab_desc <- analytical %>%
   # modify_header(label ~ "**Características dos pacientes**") %>%
   bold_labels() %>%
   modify_table_styling(columns = "label", align = "c")
-

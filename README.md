@@ -33,7 +33,7 @@ Statistical Analysis for José Brites (Secretaria Municipal de Saúde de America
 This analysis is included in the consultant's portfolio.
 Other analyses performed can also be seen at:
 
-https://philsf-biostat.github.io/
+<https://philsf-biostat.github.io/>
 
 <!-- --- -->
 

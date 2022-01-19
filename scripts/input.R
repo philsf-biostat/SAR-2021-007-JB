@@ -1,8 +1,12 @@
 # setup -------------------------------------------------------------------
+library(philsfmisc)
 # library(data.table)
 library(tidyverse)
 library(readxl)
 library(lubridate)
+# library(haven)
+# library(foreign)
+# library(naniar)
 library(labelled)
 library(units)
 

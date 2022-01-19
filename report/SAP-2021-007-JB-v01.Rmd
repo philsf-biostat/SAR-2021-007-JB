@@ -2,7 +2,7 @@
 title: "Analytical Plan for Incidence rates of scorpion accidents in Urban Planning Areas of Americana/SP in 1998-2018"
 subtitle: 'DOCUMENT: SAP-2021-007-JB-v01'
 author: '**From:** Felipe Figueiredo **To:** ___'
-date: '**Date:** yyyy-mm-dd'
+date: "`r Sys.Date()`"
 output:
   html_document:
     fig_caption: yes
@@ -29,12 +29,15 @@ knitr::opts_knit$set(root.dir = normalizePath(".."))
 options(scipen = 999)
 library(pander)
 library(knitr)
-library(philsfmisc)
 panderOptions('table.style', 'rmarkdown')
 panderOptions('table.split.table', 160)
 ```
 
 ---
+
+\newpage
+
+**Analytical Plan for Incidence rates of scorpion accidents in Urban Planning Areas of Americana/SP in 1998-2018**
 
 **Document version**
 
@@ -51,19 +54,20 @@ kable(history)
 
 # Abbreviations
 
-- d: Cohen's D effect size
-- IQR: interquartile range
+<!-- - d: Cohen's D effect size -->
+<!-- - IQR: interquartile range -->
 - SD: standard deviation
+- UPA: Urban planning area
 
-# Introduction
-
-## Context
+# Context
 
 ## Objectives
 
 Characterize the Urban Planning Areas and estimate the incidence rates of scorpion accidents of Americana/SP in 1998-2018.
 
 ## Hypotheses
+
+## Study design
 
 # Data
 
@@ -73,7 +77,11 @@ source("scripts/input.R", encoding = 'UTF-8')
 
 ## Raw data
 
+Dataset with number of accidents and population for each UPA and year between 1998 -- 2018.
+
 ## Analytical dataset
+
+In order to enhance the numerical performance of the statistical models the year was recentered with a time index starting at 1, and covering all years in the study period.
 
 All variables in the analytical set were labeled according to the raw data provided and values were labeled according to the data dictionary for the preparation of production-quality results tables and figures.
 
@@ -91,7 +99,22 @@ The analytical dataset will be included in the private version of the report, an
 
 ## Primary and secondary outcomes
 
+Primary outcome will be defined as the incidence rate of scorpion accidents in each APU.
+For each APU the incidence rates will be computed as the ratio between the number of incident accidents over the population.
+<!-- Incidence rates will be reported per 10000 persons. -->
+
+**Specification of outcome measures** (Zarin, 2011):
+
+1. (Domain)
+2. (Specific measurement)
+3. (Specific metric)
+4. (Method of aggregation)
+
+**Primary outcome**
+
 ## Covariates
+
+Incidence rates will be adjusted by year and population.
 
 # Statistical methods
 
@@ -99,10 +122,12 @@ The analytical dataset will be included in the private version of the report, an
 
 ### Descriptive analyses
 
-The epidemiological profile of each study group
+<!-- The epidemiological profile of each study group -->
 <!-- groups -->
-will be described at baseline.
-Demographic and clinical variables will be described as
+<!-- will be described at baseline. -->
+<!-- Demographic and clinical variables will be described as -->
+The characteristics of the UPAs will be described at the year 2018, which will be hypothesized to be representative of static characteristics.
+All variables collected will be described as 
 mean (SD)
 <!-- median (IQR) -->
 or as counts and proportions (%), as appropriate.
@@ -110,17 +135,21 @@ Distributions will be summarized in tables and visualized in exploratory plots.
 
 ### Inferential analyses
 
-All comparisons between groups will be performed as univariate analyses.
-Continuous variables will be compared between groups with the
-independent t test with Welch correction.
+<!-- All comparisons between groups will be performed as univariate analyses. -->
+<!-- Continuous variables will be compared between groups with the -->
+<!-- independent t test with Welch correction. -->
 <!-- paired t test with Welch correction. -->
 <!-- Wilcoxon test. -->
-Differences in distribution of categorical variables will be assessed with the
-Fisher exact test.
+<!-- Differences in distribution of categorical variables will be assessed with the -->
+<!-- Fisher exact test. -->
 <!-- chi-square test. -->
 <!-- McNemar test. -->
+All inferences will be derived from the statistical model.
 
 ### Statistical modeling
+
+A multiple Poisson regression will be specified to explore the relations between the accident incidence rates and the UPAs between 1998 and 2018 (ten UPAs, 21 years, 210 observations).
+To account for increases in incident accidents an interaction term will be included for year and UPA, which will allow the incidence rates to increase independently.
 
 ## Significance and Confidence Intervals
 
@@ -151,18 +180,27 @@ N/A
 
 This analysis will be performed using statistical software `R` version `r getRversion()`.
 
-# Exceptions and Observations
+# Observations and limitations
 
 # References
 
 - **SAR-2021-007-JB-v01** -- Incidence rates of scorpion accidents in Urban Planning Areas of Americana/SP in 1998-2018
 <!-- - Cohen, J. (1988). Statistical power analysis for the behavioral sciences (2nd Ed.). New York: Routledge. -->
+- Zarin DA, et al. The ClinicalTrials.gov results database — update and key issues. N Engl J Med 2011;364:852-60 (<https://doi.org/10.1056/NEJMsa1012065>).
+- Gamble C, et al. Guidelines for the Content of Statistical Analysis Plans in Clinical Trials. JAMA. 2017;318(23):2337–2343 (<https://doi.org/10.1001/jama.2017.18556>).
 
 # Appendix
+
+This document was elaborated following recommendations on the structure for Statistical Analysis Plans (Gamble, 2017) for better transparency and clarity.
 
 ## Availability
 
 Both this analytical plan and the corresponding analysis report (**SAR-2021-007-JB-v01**) can be downloaded in the following address:
 
-https://github.com/philsf-biostat/SAR-2021-007-JB/
+<https://philsf-biostat.github.io/SAR-2021-007-JB/>
 
+<!-- The client has requested that this analysis be kept confidential. -->
+<!-- Both this analytical plan and the corresponding analysis report (**SAR-2021-007-JB-v01**) are therefore not published online and only the title and year of the analysis will be included in the consultant's Portfolio. -->
+<!-- The portfolio is available at: -->
+
+<!-- <https://philsf-biostat.github.io/> -->

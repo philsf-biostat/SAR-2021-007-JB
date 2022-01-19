@@ -2,7 +2,7 @@
 title: "Analytical Plan for Incidence rates of scorpion accidents in Urban Planning Areas of Americana/SP in 1998-2018"
 subtitle: 'DOCUMENT: SAP-2021-007-JB-v01'
 author: '**From:** Felipe Figueiredo **To:** ___'
-date: '**Date:** yyyy-mm-dd'
+date: "`r Sys.Date()`"
 output:
   html_document:
     fig_caption: yes
@@ -29,12 +29,15 @@ knitr::opts_knit$set(root.dir = normalizePath(".."))
 options(scipen = 999)
 library(pander)
 library(knitr)
-library(philsfmisc)
 panderOptions('table.style', 'rmarkdown')
 panderOptions('table.split.table', 160)
 ```
 
 ---
+
+\newpage
+
+**Analytical Plan for Incidence rates of scorpion accidents in Urban Planning Areas of Americana/SP in 1998-2018**
 
 **Document version**
 
@@ -56,15 +59,15 @@ kable(history)
 - SD: standard deviation
 - UPA: Urban planning area
 
-# Introduction
-
-## Context
+# Context
 
 ## Objectives
 
 Characterize the Urban Planning Areas and estimate the incidence rates of scorpion accidents of Americana/SP in 1998-2018.
 
 ## Hypotheses
+
+## Study design
 
 # Data
 
@@ -99,6 +102,15 @@ The analytical dataset will be included in the private version of the report, an
 Primary outcome will be defined as the incidence rate of scorpion accidents in each APU.
 For each APU the incidence rates will be computed as the ratio between the number of incident accidents over the population.
 <!-- Incidence rates will be reported per 10000 persons. -->
+
+**Specification of outcome measures** (Zarin, 2011):
+
+1. (Domain)
+2. (Specific measurement)
+3. (Specific metric)
+4. (Method of aggregation)
+
+**Primary outcome**
 
 ## Covariates
 
@@ -168,18 +180,27 @@ N/A
 
 This analysis will be performed using statistical software `R` version `r getRversion()`.
 
-# Exceptions and Observations
+# Observations and limitations
 
 # References
 
 - **SAR-2021-007-JB-v01** -- Incidence rates of scorpion accidents in Urban Planning Areas of Americana/SP in 1998-2018
 <!-- - Cohen, J. (1988). Statistical power analysis for the behavioral sciences (2nd Ed.). New York: Routledge. -->
+- Zarin DA, et al. The ClinicalTrials.gov results database — update and key issues. N Engl J Med 2011;364:852-60 (<https://doi.org/10.1056/NEJMsa1012065>).
+- Gamble C, et al. Guidelines for the Content of Statistical Analysis Plans in Clinical Trials. JAMA. 2017;318(23):2337–2343 (<https://doi.org/10.1001/jama.2017.18556>).
 
 # Appendix
+
+This document was elaborated following recommendations on the structure for Statistical Analysis Plans (Gamble, 2017) for better transparency and clarity.
 
 ## Availability
 
 Both this analytical plan and the corresponding analysis report (**SAR-2021-007-JB-v01**) can be downloaded in the following address:
 
-https://github.com/philsf-biostat/SAR-2021-007-JB/
+<https://philsf-biostat.github.io/SAR-2021-007-JB/>
 
+<!-- The client has requested that this analysis be kept confidential. -->
+<!-- Both this analytical plan and the corresponding analysis report (**SAR-2021-007-JB-v01**) are therefore not published online and only the title and year of the analysis will be included in the consultant's Portfolio. -->
+<!-- The portfolio is available at: -->
+
+<!-- <https://philsf-biostat.github.io/> -->

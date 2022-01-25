@@ -1,9 +1,14 @@
 # setup -------------------------------------------------------------------
+library(philsfmisc)
 # library(data.table)
 library(tidyverse)
 library(readxl)
 library(lubridate)
+# library(haven)
+# library(foreign)
+# library(naniar)
 library(labelled)
+library(units)
 
 # data loading ------------------------------------------------------------
 set.seed(42)
@@ -52,11 +57,23 @@ data.raw <- data.raw %>%
   mutate(
     upa = factor(upa),
     accidents = as.integer(accidents),
-    pop = as.integer(pop),
-    year = factor(year),
-    )
+    pop = pop/10000,
+    time = year - min(year) + 1, # recenter to start at 1
+    # year = factor(year),
+  )
 
 upa.raw <- upa.raw %>%
+  # Unit conversion
+  mutate(
+    # set current unit
+    green = set_units(green, "m^2"),
+    hydrography = set_units(hydrography, "m^2"),
+    railway = set_units(railway, "m"),
+    # convert to new unit
+    green = as.numeric(set_units(green, "km^2")),
+    hydrography = as.numeric(set_units(hydrography, "km^2")),
+    railway = as.numeric(set_units(railway, "km")),
+  ) %>%
   mutate(
     upa = factor(upa),
   )
@@ -66,6 +83,7 @@ upa.raw <- upa.raw %>%
 data.raw <- data.raw %>%
   set_variable_labels(
     year = "Year",
+    time = "Year",
     upa = "Urban Planning Area",
     accidents = "Number of accidents",
     pop = "Population",
@@ -76,14 +94,14 @@ upa.raw <- upa.raw %>%
     upa = "Urban Planning Area",
     sewage = "Sewage network (km)",
     rain = "Rainwater network (km)",
-    green = "Green areas (m2)",
+    green = "Green areas (km²)",
     garbage = "Irregular garbage disposal areas",
     recycling_inf = "Informal recycling units",
     junk = "Junkyard units",
     burn = "Burned-out areas (foci)",
     area = "Area (km²)",
-    hydrography = "Hydrography area (m²)",
-    railway = "Railway lines (m)",
+    hydrography = "Hydrography area (km²)",
+    railway = "Railway lines (km)",
     recycling_mun = "Municipal recycling units",
     cemitery = "Presence of a cemitery",
   )

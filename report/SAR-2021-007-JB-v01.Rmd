@@ -2,7 +2,7 @@
 title: "Incidence rates of scorpion accidents in Urban Planning Areas of Americana/SP in 1998-2018"
 subtitle: 'DOCUMENT: SAR-2021-007-JB-v01'
 author: '**From:** Felipe Figueiredo **To:** ___'
-# date: 'yyyy-mm-dd'
+date: "`r Sys.Date()`"
 output:
   html_document:
     fig_caption: yes
@@ -29,12 +29,13 @@ knitr::opts_knit$set(root.dir = normalizePath(".."))
 options(scipen = 999)
 library(pander)
 library(knitr)
-library(philsfmisc)
 panderOptions('table.style', 'rmarkdown')
 panderOptions('table.split.table', 160)
 ```
 
 ---
+
+\newpage
 
 **Incidence rates of scorpion accidents in Urban Planning Areas of Americana/SP in 1998-2018**
 
@@ -53,7 +54,7 @@ kable(history)
 
 # Abbreviations
 
-# Introduction
+# Context
 
 ## Objectives
 
@@ -75,8 +76,6 @@ source("scripts/results.R", encoding = 'UTF-8')
 
 ## Statistical analyses
 
-### Statistical packages
-
 This analysis was performed using statistical software `R` version `r getRversion()`.
 
 # Results
@@ -84,11 +83,11 @@ This analysis was performed using statistical software `R` version `r getRversio
 ## Study population and follow up
 
 ```{r tab_desc}
-# tab_desc %>%
-#   as_kable(
-#     align = "lccc",
-#     caption = "**Table 1** caption"
-#   )
+tab_desc %>%
+  as_kable(
+    align = "lccc",
+    caption = "**Table 1** caption"
+  )
 ```
 
 ## Inferential analysis
@@ -101,7 +100,18 @@ This analysis was performed using statistical software `R` version `r getRversio
 #   )
 ```
 
-# Exceptions and Observations
+## Modeling
+
+```{r tab_mod}
+tab_mod %>%
+  as_kable(
+    align = "lccccccccc",
+    caption = "**Table 2** caption"
+  )
+```
+
+
+# Observations and Limitations
 
 # Conclusions
 
@@ -121,11 +131,17 @@ This analysis was performed using statistical software `R` version `r getRversio
 
 ## Availability
 
-<!-- Both this document and the corresponding analytical plan (**SAP-2021-007-JB-v01**) can be downloaded in the following address: -->
+Both this document and the corresponding analytical plan (**SAP-2021-007-JB-v01**) can be downloaded in the following address:
 
-This document can be downloaded in the following address:
+<!-- This document can be downloaded in the following address: -->
 
-<https://github.com/philsf-biostat/SAR-2021-007-JB/>
+<https://philsf-biostat.github.io/SAR-2021-007-JB/>
+
+<!-- The client has requested that this analysis be kept confidential. -->
+<!-- Both this document and the corresponding analytical plan (**SAP-2021-007-JB-v01**) are therefore not published online and only the title and year of the analysis will be included in the consultant's Portfolio. -->
+<!-- The portfolio is available at: -->
+
+<!-- <https://philsf-biostat.github.io/> -->
 
 ## Analytical dataset
 

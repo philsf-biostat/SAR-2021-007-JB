@@ -7,6 +7,10 @@ library(broom)
 # library(simputation)
 # library(mice)
 
+reset_gtsummary_theme()
+theme_gtsummary_journal("nejm") # separate CI column for tab_mod
+theme_gtsummary_compact()
+
 # accident rate -----------------------------------------------------------
 
 model.min <- glm(

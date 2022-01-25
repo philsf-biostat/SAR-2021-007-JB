@@ -55,7 +55,7 @@ kable(history)
 # Abbreviations
 
 <!-- - d: Cohen's D effect size -->
-<!-- - IQR: interquartile range -->
+- IQR: interquartile range
 - CI: confidence interval
 - IRR: Incidence Rate Ratio
 - SD: standard deviation
@@ -134,8 +134,8 @@ Incidence rates will be adjusted by year and population.
 <!-- Demographic and clinical variables will be described as -->
 The characteristics of the UPAs will be described at the year 2018, which will be hypothesized to be representative of static characteristics.
 All variables collected will be described as 
-mean (SD)
-<!-- median (IQR) -->
+mean (SD),
+median (IQR) and range
 or as counts and proportions (%), as appropriate.
 Distributions will be summarized in tables and visualized in exploratory plots.
 

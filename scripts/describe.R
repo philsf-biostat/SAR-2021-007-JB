@@ -10,7 +10,7 @@ library(gt)
 # library(finalfit) # missing_compare
 
 # setup gtsummary theme
-theme_gtsummary_journal("jama")
+theme_gtsummary_journal("nejm")
 theme_gtsummary_compact()
 theme_gtsummary_mean_sd() # mean/sd
 # theme_gtsummary_language(language = "pt") # traduzir
@@ -27,6 +27,7 @@ analytical %>%
   summarise(
     ac_m = mean(accidents),
     ac_sd = sd(accidents),
+    cv = ac_sd/ac_m,
     # cap_m = mean(capturas, na.rm = TRUE),
     # cap_sd = sd(capturas, na.rm = TRUE),
     )
@@ -36,12 +37,13 @@ analytical %>%
 
 # tables ------------------------------------------------------------------
 
-tab_desc <- analytical %>%
+tab_desc <- upa.raw %>%
   # select
-  select(-year, -upa) %>%
+  select(-upa, ) %>%
   tbl_summary(
     # by = upa,
-    type = list(railway = "continuous"),
+    type = list(where(is.numeric) ~ "continuous2", cemitery ~ "dichotomous"),
+    statistic = all_continuous() ~ c("{mean} ({sd})", "{median} ({p25}, {p75})", "{min}, {max}")
   ) %>%
   # modify_caption(caption = "**Tabela 1** Características demográficas") %>%
   # modify_header(label ~ "**Características dos pacientes**") %>%

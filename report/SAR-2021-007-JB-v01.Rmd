@@ -83,11 +83,11 @@ This analysis was performed using statistical software `R` version `r getRversio
 ## Study population and follow up
 
 ```{r tab_desc}
-# tab_desc %>%
-#   as_kable(
-#     align = "lccc",
-#     caption = "**Table 1** caption"
-#   )
+tab_desc %>%
+  as_kable(
+    align = "lccc",
+    caption = "**Table 1** caption"
+  )
 ```
 
 ## Inferential analysis
@@ -99,6 +99,17 @@ This analysis was performed using statistical software `R` version `r getRversio
 #     caption = "**Table 2** caption"
 #   )
 ```
+
+## Modeling
+
+```{r tab_mod}
+tab_mod %>%
+  as_kable(
+    align = "lccccccccc",
+    caption = "**Table 2** caption"
+  )
+```
+
 
 # Observations and Limitations
 

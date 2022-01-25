@@ -7,33 +7,36 @@ library(broom)
 # library(simputation)
 # library(mice)
 
-# accident count ----------------------------------------------------------
-
-# model.min <- glm(
-#   accidents ~ upa,
-#   analytical, family = "poisson")
-# model.year <- glm(
-#   accidents ~ upa + year,
-#   analytical, family = "poisson")
-# model.full <- glm(
-#   accidents ~ upa + year + pop,
-#   analytical, family = "poisson")
-
 # accident rate -----------------------------------------------------------
 
-model.min <- vglm(
+model.min <- glm(
   accidents ~ upa -1,
   offset = log(pop),
-  analytical, family = "pospoisson")
-model.year <- vglm(
+  analytical, family = "poisson")
+model.year <- glm(
   accidents ~ upa + time -1,
   offset = log(pop),
-  analytical, family = "pospoisson")
-# to include interaction, consider using dummy variables for upa
-model.full <- vglm(
+  analytical, family = "poisson")
+model.full <- glm(
   accidents ~ upa + time + pop -1,
   offset = log(pop),
-  analytical, family = "pospoisson")
+  analytical, family = "poisson")
+
+# accident rate (positive poisson)
+
+# model.min <- vglm(
+#   accidents ~ upa -1,
+#   offset = log(pop),
+#   analytical, family = "pospoisson")
+# model.year <- vglm(
+#   accidents ~ upa + time -1,
+#   offset = log(pop),
+#   analytical, family = "pospoisson")
+# # to include interaction, consider using dummy variables for upa
+# model.full <- vglm(
+#   accidents ~ upa + time + pop -1,
+#   offset = log(pop),
+#   analytical, family = "pospoisson")
 
 # random effects on upa ---------------------------------------------------
 

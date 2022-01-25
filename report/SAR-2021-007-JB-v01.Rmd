@@ -1,7 +1,7 @@
 ---
 title: "Incidence rates of scorpion accidents in Urban Planning Areas of Americana/SP in 1998-2018"
 subtitle: 'DOCUMENT: SAR-2021-007-JB-v01'
-author: '**From:** Felipe Figueiredo **To:** ___'
+author: '**From:** Felipe Figueiredo **To:** José Brites'
 date: "`r Sys.Date()`"
 output:
   html_document:

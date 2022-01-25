@@ -67,7 +67,11 @@ Characterize the Urban Planning Areas and estimate the incidence rates of scorpi
 
 ## Hypotheses
 
+N/A
+
 ## Study design
+
+Ecological study, with unit of analysis as the Urban Planning Area (municipal geographic regions).
 
 # Data
 
@@ -101,7 +105,7 @@ The analytical dataset will be included in the private version of the report, an
 
 Primary outcome will be defined as the incidence rate of scorpion accidents in each APU.
 For each APU the incidence rates will be computed as the ratio between the number of incident accidents over the population.
-<!-- Incidence rates will be reported per 10000 persons. -->
+Incidence rates will be reported per 10000 persons.
 
 **Specification of outcome measures** (Zarin, 2011):
 

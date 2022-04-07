@@ -56,6 +56,8 @@ upa.raw <- upa.raw %>%
 data.raw <- data.raw %>%
   mutate(
     upa = factor(upa),
+    # set 10 as reference level
+    upa = relevel(upa, 10),
     accidents = as.integer(accidents),
     pop = pop/10000,
     time = year - min(year) + 1, # recenter to start at 1

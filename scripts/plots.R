@@ -1,5 +1,4 @@
 # setup -------------------------------------------------------------------
-# library(ggplot2)
 # library(survminer)
 
 ff.col <- "steelblue" # good for single groups scale fill/color brewer
@@ -7,6 +6,10 @@ ff.pal <- "Paired"    # good for binary groups scale fill/color brewer
 
 scale_color_discrete <- function(...) scale_color_brewer(palette = ff.pal, ...)
 scale_fill_discrete <- function(...) scale_fill_brewer(palette = ff.pal, ...)
+
+analytical <- analytical %>%
+  # restore factor levels for plotting
+  mutate(upa = fct_relevel(upa, as.character(1:10)))
 
 gg <- analytical %>%
   ggplot() +
@@ -26,21 +29,15 @@ gg.upa <- upa.raw %>%
 
 # plots -------------------------------------------------------------------
 
-# gg <- ggplot(analytical, aes(outcome, fill = group)) +
-#   geom_density( alpha = .8) +
-#   # scale_color_brewer(palette = ff.pal) +
-#   scale_fill_brewer(palette = ff.pal) +
-#   labs()
-
 gg.dens <- gg.upa +
-  geom_density(fill = ff.col) +
-  labs(title = "Distribution densities of APU characteristics")
+  # labs(title = "Distribution densities of UPA characteristics") +
+  geom_density(fill = ff.col)
 
 # cool facet trick from https://stackoverflow.com/questions/3695497 by JWilliman
 gg.hist <- gg.upa +
-  geom_histogram(bins = 5, aes(y = ..count../tapply(..count.., ..PANEL.., sum)[..PANEL..]), fill = ff.col) +
+  # labs(title = "Distributions of UPA characteristics") +
   scale_y_continuous(labels = scales::label_percent(accuracy = 1)) +
-  labs(title = "Distributions of APU characteristics")
+  geom_histogram(bins = 5, aes(y = ..count../tapply(..count.., ..PANEL.., sum)[..PANEL..]), fill = ff.col)
 
 gg.pop <- gg +
   labs(
@@ -53,7 +50,8 @@ gg.pop <- gg +
 gg.rate <- gg +
   labs(
     x = NULL,
-    y = "Observed incidence rate (per 10000)",
+    y = "Incidence rate (per 10000)",
     color = 'UPA',
     ) +
-  geom_line(aes(year, accidents/pop, group = upa, col = upa), size = .7, alpha = .8)
+  scale_y_continuous(limits = c(0, 100)) +
+  geom_line(aes(year, pred, group = upa, col = upa), size = .7)

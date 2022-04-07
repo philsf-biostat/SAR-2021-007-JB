@@ -11,10 +11,10 @@ units <- "cm"
 #   as_rtf() %>%
 #   writeLines(con = "report/SAR-2021-007-JB-v01-T2.rtf")
 
-tab_mod %>%
-    as_gt() %>%
-    as_rtf() %>%
-    writeLines(con = "report/SAR-2021-007-JB-v01-T2.rtf")
+# tab_mod %>%
+#     as_gt() %>%
+#     as_rtf() %>%
+#     writeLines(con = "report/SAR-2021-007-JB-v01-T2.rtf")
 
 # save plots --------------------------------------------------------------
 

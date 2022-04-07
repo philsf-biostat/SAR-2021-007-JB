@@ -14,15 +14,15 @@ theme_gtsummary_compact()
 # accident rate -----------------------------------------------------------
 
 model.min <- glm(
-  accidents ~ upa -1,
+  accidents ~ upa,
   offset = log(pop),
   analytical, family = "poisson")
 model.year <- glm(
-  accidents ~ upa + time -1,
+  accidents ~ upa + time,
   offset = log(pop),
   analytical, family = "poisson")
 model.full <- glm(
-  accidents ~ upa * time -1,
+  accidents ~ upa * time,
   offset = log(pop),
   analytical, family = "poisson")
 
@@ -88,16 +88,19 @@ model.full %>%
 
 tab_mod.crude <- model.min %>%
   tbl_regression(exp = TRUE,
-                 include = upa,
-                 )
+                 # include = upa,
+                 add_estimate_to_reference_rows = TRUE,
+                 ) %>% bold_labels()
 tab_mod.year <- model.year %>%
   tbl_regression(exp = TRUE,
-                 include = upa,
-                 )
+                 # include = upa,
+                 add_estimate_to_reference_rows = TRUE,
+                 ) %>% bold_labels()
 tab_mod.full <- model.full %>%
   tbl_regression(exp = TRUE,
-                 include = upa,
-                 )
+                 # include = upa,
+                 add_estimate_to_reference_rows = TRUE,
+                 ) %>% bold_labels()
 
 tab_mod <- tbl_merge(
   list(

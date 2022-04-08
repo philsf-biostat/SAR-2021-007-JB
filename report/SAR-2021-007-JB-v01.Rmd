@@ -135,6 +135,24 @@ We will assess this impact in the section 4.2.
 
 ## Incidence of scorpion accidents
 
+The models used in this analysis allow for the estimation of the expected number of scorpion accidents per 10000 persons (Table 2).
+UPA 10 was chosen as the baseline for comparison for having the lowest absolute risk in the full model.
+Table 2 shows how the risk in other UPA compares to the risk in the reference UPA.
+
+Without the assumption of incidence growth, the baseline risk of scorpion accident was
+`r model.min$coefficients[1] %>% exp %>% format.float()` accidents per UPA
+(`r tab_headers[1]` in Table 2).
+n this simpler model, while most UPA appear to have larger numbers of expected accidents, risk ratios varied between a 50% decrease (UPA 8) to an 100% increase (UPA 3), when compared to the reference UPA.
+
+With the assumption of incidence growth (`r tab_headers[2]` in Table 2), varying by UPA across the study period, the baseline risk of scorpion accident was
+`r model.full$coefficients[1] %>% exp %>% format.float()` accidents per UPA.
+For each year, on there was an average increase of
+`r model.full$coefficients["time"] %>% exp %>% format.float()` accidents
+and besides this, every UPA had their own independent incidence rate estimated.
+After controlling for this, the three UPA with the largest IRR compared to the baseline risk were UPA 4, 7 and 5, while the smallest increase were observed in UPA 2, 8 and 3.
+In this model, the increase in risk of accidents varied between 70% increase (UPA 2) to approximately 800% increase (UPA 4), when compared to UPA 10.
+UPA 2 was the only region that had less than 100% increased population risk of scorpion accidents.
+
 ```{r tab_mod}
 tab_mod %>%
   as_kable(
@@ -142,6 +160,8 @@ tab_mod %>%
     caption = "**Table 2** Incidence rates of scorpion accidents in ten urban planning areas (UPA) in Americana/SP (1998-2008)."
   )
 ```
+
+Figure 3 shows the trajectories of how the expected incidence grew associated with the population across the study period.
 
 ```{r fig3, fig.cap="**Figure 3** Incidence trajectories of scorpion accidents in ten urban planning areas (UPA) in Americana/SP (1998-2008)."}
 # ![Age](../figures/distr_age.png)

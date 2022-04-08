@@ -82,6 +82,8 @@ This analysis was performed using statistical software `R` version `r getRversio
 
 ## Study population and follow up
 
+### Urban Planning Areas
+
 ```{r tab_desc}
 tab_desc %>%
   as_kable(
@@ -95,7 +97,7 @@ tab_desc %>%
 knitr::include_graphics("../figures/density.png", error = FALSE)
 ```
 
-## Inferential analysis
+### Population
 
 ```{r tab_inf}
 # tab_inf %>%
@@ -110,7 +112,7 @@ knitr::include_graphics("../figures/density.png", error = FALSE)
 knitr::include_graphics("../figures/pop.png", error = FALSE)
 ```
 
-## Modeling
+## Incidence of scorpion accidents
 
 ```{r tab_mod}
 tab_mod %>%
@@ -144,6 +146,8 @@ Alternative version of figure 1.
 # ![Age](../figures/distr_age.png)
 knitr::include_graphics("../figures/histogram.png", error = FALSE)
 ```
+
+## Modeling procedures
 
 ## Availability
 

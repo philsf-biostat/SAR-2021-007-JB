@@ -113,7 +113,7 @@ UPA 1, UPA 8 and UPA 9 with
 `r pull(filter(increase, upa == 8), pop) %>% round` and
 `r pull(filter(increase, upa == 9), pop) %>% round` new persons, respectively.
 
-```{r fig2, fig.cap="**Figure 2** Population in ten urban planning areas (UPA) in Americana/SP (1998-2008)."}
+```{r fig2, fig.cap="**Figure 2** Population trajectories in ten urban planning areas (UPA) in Americana/SP (1998-2008)."}
 # ![Age](../figures/distr_age.png)
 knitr::include_graphics("../figures/pop.png", error = FALSE)
 ```
@@ -139,11 +139,11 @@ We will assess this impact in the section 4.2.
 tab_mod %>%
   as_kable(
     align = "lccccccccc",
-    caption = "**Table 2** caption"
+    caption = "**Table 2** Incidence rates of scorpion accidents in ten urban planning areas (UPA) in Americana/SP (1998-2008)."
   )
 ```
 
-```{r fig3, fig.cap="**Figure 3** Incidence rates of scorpion accidents in ten urban planning areas (UPA) in Americana/SP (1998-2008)."}
+```{r fig3, fig.cap="**Figure 3** Incidence trajectories of scorpion accidents in ten urban planning areas (UPA) in Americana/SP (1998-2008)."}
 # ![Age](../figures/distr_age.png)
 knitr::include_graphics("../figures/rate.png", error = FALSE)
 ```
@@ -196,13 +196,13 @@ This was incorporated in the model as the offset to compute the incidence rates 
 This means that the population is not considered as an explanatory variable in the regression model, but as a fixed coefficient in the incidence rates ratios.
 Variation in population over the years are effectively only considered for the calculation of incidence rates.
 
-Table A1 shows an alternative display of Table 2, with all estimands included in the regression model.
+Table A1 shows an alternative display of Table 2, with all regressors included in the model.
 
 ```{r tabA1}
 tab_mod2 %>%
   as_kable(
     # align = "lccccccccc",
-    caption = "**Table A1** caption"
+    caption = "**Table A1** Alternative version of incidence rates of scorpion accidents in ten urban planning areas (UPA) in Americana/SP (1998-2008)."
   )
 ```
 

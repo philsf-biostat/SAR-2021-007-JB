@@ -1,5 +1,6 @@
 # setup -------------------------------------------------------------------
 # library(survminer)
+library(directlabels)
 
 ff.col <- "steelblue" # good for single groups scale fill/color brewer
 ff.pal <- "Paired"    # good for binary groups scale fill/color brewer
@@ -48,6 +49,8 @@ gg.pop <- gg +
     ) +
   geom_line(aes(year, pop, group = upa, col = upa), size = 1)
 
+# gg.pop <- gg.pop %>% direct.label(method = "right.polygons")
+
 gg.rate <- gg +
   labs(
     x = NULL,
@@ -56,3 +59,5 @@ gg.rate <- gg +
     ) +
   scale_y_continuous(limits = c(0, 100)) +
   geom_line(aes(year, pred, group = upa, col = upa), size = 1)
+
+# gg.rate <- gg.rate %>% direct.label(method = "right.polygons")

@@ -161,6 +161,11 @@ tab_mod %>%
   )
 ```
 
+The comparison between the two models allow for the evaluation of the inclusion of time varying slopes in the risk estimates.
+All relative risk estimates are much higher in the full model, indicating some evidence for the hypothesis that different UPA followed different trajectories.
+This interpretation is also supported by observing that most trajectories in Figure 2 cross, indicating that an interaction between time and incidence exist across different regions.
+Finally if the full model is indeed a better approximation of the real incidence, it can be concluded that the simpler model overestimated the true incidence of accidents in UPA 10.
+
 Figure 3 shows the trajectories of how the expected incidence grew associated with the population across the study period.
 While UPA 10 had the lowest overall incidence it has seen the third top increase in incidence rate over time, behind UPA 2 and 6.
 

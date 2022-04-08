@@ -65,7 +65,7 @@ kable(history)
 
 ## Objectives
 
-Characterize the Urban Planning Areas and estimate the incidence rates of scorpion accidents of Americana/SP in 1998-2018.
+Describe the incidence rates of scorpion accidents in ten Urban Planning Areas of Americana/SP between 1998 and 2018.
 
 ## Hypotheses
 

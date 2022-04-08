@@ -149,6 +149,21 @@ knitr::include_graphics("../figures/histogram.png", error = FALSE)
 
 ## Modeling procedures
 
+The population of the UPA was considered as a proxy for the exposure to accidents.
+This was incorporated in the model as the offset to compute the incidence rates and allowed to vary over time.
+This means that the population is not considered as an explanatory variable in the regression model, but as a fixed coefficient in the incidence rates ratios.
+Variation in population over the years are effectively only considered for the calculation of incidence rates.
+
+Table A1 shows an alternative display of Table 2, with all estimands included in the regression model.
+
+```{r tabA1}
+tab_mod2 %>%
+  as_kable(
+    # align = "lccccccccc",
+    caption = "**Table A1** caption"
+  )
+```
+
 ## Availability
 
 Both this document and the corresponding analytical plan (**SAP-2021-007-JB-v01**) can be downloaded in the following address:
@@ -165,13 +180,15 @@ Both this document and the corresponding analytical plan (**SAP-2021-007-JB-v01*
 
 ## Analytical dataset
 
-Due to confidentiality the data-set used in this analysis cannot be shared online in the public version of this report.
+Table A2 shows the structure of the analytical dataset.
 
 ```{r data}
 # print analytical of analytical_mockup whether it is the private or public version of the SAR
 
 # analytical %>%
-#   pander(caption = "**Table A1** Analytical dataset")
+#   pander(caption = "**Table A2** Analytical dataset")
 analytical_mockup %>%
-  pander(caption = "**Table A1** Analytical dataset structure")
+  pander(caption = "**Table A2** Analytical dataset structure")
 ```
+
+Due to confidentiality the data-set used in this analysis cannot be shared online in the public version of this report.

@@ -112,3 +112,8 @@ tab_mod <- tbl_merge(
                   # "**Adjusted by Year**",
                   "**Fully adjusted**")
 )
+
+## reduce table 2, and save complete table for A1
+tab_mod2 <- tab_mod
+tab_mod$table_body %>% filter(variable == "upa")
+tab_mod$table_body <- tab_mod$table_body %>% filter(variable == "upa")

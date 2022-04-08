@@ -1,5 +1,5 @@
 ---
-title: "Incidence rates of scorpion accidents in Urban Planning Areas of Americana/SP in 1998-2018"
+title: "Incidence rates of scorpion accidents in Urban Planning Areas of Americana/SP in 1998--2018"
 subtitle: 'DOCUMENT: SAR-2021-007-JB-v01'
 author: '**From:** Felipe Figueiredo **To:** José Brites'
 date: "`r Sys.Date()`"
@@ -37,7 +37,7 @@ panderOptions('table.split.table', 160)
 
 \newpage
 
-**Incidence rates of scorpion accidents in Urban Planning Areas of Americana/SP in 1998-2018**
+**Incidence rates of scorpion accidents in Urban Planning Areas of Americana/SP in 1998--2018**
 
 **Document version**
 
@@ -131,7 +131,7 @@ knitr::include_graphics("../figures/rate.png", error = FALSE)
 
 # References
 
-- **SAP-2021-007-JB-v01** -- Analytical Plan for Incidence rates of scorpion accidents in Urban Planning Areas of Americana/SP in 1998-2018
+- **SAP-2021-007-JB-v01** -- Analytical Plan for Incidence rates of scorpion accidents in Urban Planning Areas of Americana/SP in 1998--2018
 <!-- - Cohen, J. (1988). Statistical power analysis for the behavioral sciences (2nd Ed.). New York: Routledge. -->
 
 # Appendix

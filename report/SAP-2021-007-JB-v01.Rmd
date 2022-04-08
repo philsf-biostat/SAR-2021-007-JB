@@ -1,5 +1,5 @@
 ---
-title: "Analytical Plan for Incidence rates of scorpion accidents in Urban Planning Areas of Americana/SP in 1998-2018"
+title: "Analytical Plan for Incidence rates of scorpion accidents in Urban Planning Areas of Americana/SP in 1998--2018"
 subtitle: 'DOCUMENT: SAP-2021-007-JB-v01'
 author: '**From:** Felipe Figueiredo **To:** José Brites'
 date: 2021-10-21
@@ -37,7 +37,7 @@ panderOptions('table.split.table', 160)
 
 \newpage
 
-**Analytical Plan for Incidence rates of scorpion accidents in Urban Planning Areas of Americana/SP in 1998-2018**
+**Analytical Plan for Incidence rates of scorpion accidents in Urban Planning Areas of Americana/SP in 1998--2018**
 
 **Document version**
 
@@ -190,13 +190,13 @@ N/A
 
 ## Statistical packages
 
-This analysis will be performed using statistical software `R` version `r getRversion()`.
+This analysis will be performed using statistical software `R` version 4.1.2.
 
 # Observations and limitations
 
 # References
 
-- **SAR-2021-007-JB-v01** -- Incidence rates of scorpion accidents in Urban Planning Areas of Americana/SP in 1998-2018
+- **SAR-2021-007-JB-v01** -- Incidence rates of scorpion accidents in Urban Planning Areas of Americana/SP in 1998--2018
 <!-- - Cohen, J. (1988). Statistical power analysis for the behavioral sciences (2nd Ed.). New York: Routledge. -->
 - Zarin DA, et al. The ClinicalTrials.gov results database — update and key issues. N Engl J Med 2011;364:852-60 (<https://doi.org/10.1056/NEJMsa1012065>).
 - Gamble C, et al. Guidelines for the Content of Statistical Analysis Plans in Clinical Trials. JAMA. 2017;318(23):2337–2343 (<https://doi.org/10.1001/jama.2017.18556>).

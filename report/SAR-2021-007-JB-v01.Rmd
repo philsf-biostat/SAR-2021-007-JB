@@ -150,6 +150,20 @@ knitr::include_graphics("../figures/rate.png", error = FALSE)
 
 # Observations and Limitations
 
+**Population as a proxy for exposure**
+
+It is difficult to assess the impact of such rapid movements in population size in the accident rates.
+If our assumption that the population is a proxy exposure for the risk of scorpion accidents, these rapid movements should be associated with the incidence risk.
+Other possible explanations include a threshold population size, beyond which the risk is substantially increased.
+One limitation is that we the scorpion population size in each UPA is now known.
+If available, this could be used to control for the incidence rates measured in this ecological study.
+One other metric
+
+**Ecological fallacy**
+
+While some UPA clearly show incidence rates much higher than others, this should not be interpreted that these UPA pose a higher risk of scorpion accidents than other for individuals.
+This is an ecological study and thus the data available are aggregate counts within each geographical region, so these results cannot be directly translated to a measure of individual risk of accident.
+
 # Conclusions
 
 # References

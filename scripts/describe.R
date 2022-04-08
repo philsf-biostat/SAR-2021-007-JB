@@ -45,8 +45,22 @@ analytical %>%
     # cap_sd = sd(capturas, na.rm = TRUE),
     )
 
-# minimum detectable effect size
-# interpret_d(0.5)
+change <- analytical %>%
+  filter(year %in% range(year)) %>%
+  group_by(year) %>%
+  summarise(
+    pop = sum(pop)*10000,
+    accidents = sum(accidents),
+  )
+
+increase <- analytical %>%
+  filter(year %in% range(year)) %>%
+  group_by(upa) %>%
+  summarise(
+    pop = diff(pop)*10000,
+    accidents = diff(accidents),
+  ) %>%
+  arrange(desc(pop))
 
 # tables ------------------------------------------------------------------
 

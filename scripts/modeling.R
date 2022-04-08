@@ -102,13 +102,20 @@ tab_mod.full <- model.full %>%
                  add_estimate_to_reference_rows = TRUE,
                  ) %>% bold_labels()
 
+tab_headers <- c("Crude estimate",
+                 # "**Adjusted by Year**",
+                 "Fully adjusted")
+
 tab_mod <- tbl_merge(
   list(
     tab_mod.crude,
     # tab_mod.year,
     tab_mod.full
   ),
-  tab_spanner = c("**Crude estimate**",
-                  # "**Adjusted by Year**",
-                  "**Fully adjusted**")
+  tab_spanner = paste0("**", tab_headers, "**")
 )
+
+## reduce table 2, and save complete table for A1
+tab_mod2 <- tab_mod
+tab_mod$table_body %>% filter(variable == "upa")
+tab_mod$table_body <- tab_mod$table_body %>% filter(variable == "upa")

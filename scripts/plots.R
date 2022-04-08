@@ -49,8 +49,6 @@ gg.pop <- gg +
     ) +
   geom_line(aes(year, pop, group = upa, col = upa), size = 1)
 
-# gg.pop <- gg.pop %>% direct.label(method = "right.polygons")
-
 gg.rate <- gg +
   labs(
     x = NULL,
@@ -60,4 +58,17 @@ gg.rate <- gg +
   scale_y_continuous(limits = c(0, 100)) +
   geom_line(aes(year, pred, group = upa, col = upa), size = 1)
 
+# gg.pop <- gg.pop %>% direct.label(method = "right.polygons")
 # gg.rate <- gg.rate %>% direct.label(method = "right.polygons")
+
+# gridExtra::grid.arrange(
+#   gg.pop,
+#   gg.rate,
+#   ncol = 2
+# )
+
+# gridExtra::grid.arrange(
+#   gg.pop %>% direct.label(method = "right.polygons"),
+#   gg.rate %>% direct.label(method = "right.polygons"),
+#   ncol = 2
+# )

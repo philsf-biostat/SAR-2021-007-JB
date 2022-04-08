@@ -113,14 +113,19 @@ UPA 1, UPA 8 and UPA 9 with
 `r pull(filter(increase, upa == 8), pop) %>% round` and
 `r pull(filter(increase, upa == 9), pop) %>% round` new persons, respectively.
 
-UPA 4 and 8 did not follow monotonic trends to the to those top 3 ranks.
-UPA 4 had a sharp population increase while UPA 8 had a sharp decrease.
-Furthermore, UPA 2 had a sharp decrease around the same period, before returning to the slower growth of previous years.
+While population grew in all UPA, in most cases the trajectory did not follow a monotonic trend.
+In particular population at UPA 4 and 8 did not grow steadilly in order to reach the to the ranks of top 3 and bottom 3 in either absolute number and net growth.
+
+UPA 4 and 8 started with similar population sizes, but at the end of the study period had dramatic final population differences.
+Both did not start among the largest populations but UPA 4 had a sharp population increase while UPA 8 had a sharp decrease, at around the same period.
+Having started with a similar population size, the final difference between the final population at these two particular UPA could be explained by this shift.
+
+Furthermore, UPA 2 and 9 had a sharp decrease around the same period before resuming the slower, predictable growth rate of previous years.
 UPA 2 had started with the second largest population of the ten UPA at 1998 and ended at the fourth largest population.
 
 It is difficult to assess the impact of such rapid movements in population size in the accident rates.
 If our assumption that the population is a proxy exposure for the risk of scorpion accidents, these rapid movements should be associated with the incidence risk.
-Other possible explanations include a threshold population size, beyond which
+Other possible explanations include a threshold population size, beyond which the risk is substantially increased.
 We will assess this impact in the section 4.2.
 
 ```{r fig2, fig.cap="**Figure 2** Population in ten urban planning areas (UPA) in Americana/SP (1998-2008)."}

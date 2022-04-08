@@ -17,10 +17,10 @@ model.min <- glm(
   accidents ~ upa,
   offset = log(pop),
   analytical, family = "poisson")
-model.year <- glm(
-  accidents ~ upa + time,
-  offset = log(pop),
-  analytical, family = "poisson")
+# model.year <- glm(
+#   accidents ~ upa + time,
+#   offset = log(pop),
+#   analytical, family = "poisson")
 model.full <- glm(
   accidents ~ upa * time,
   offset = log(pop),
@@ -62,8 +62,8 @@ model.full <- glm(
 # number of accidents
 model.min %>%
   summary()
-model.year %>%
-  summary()
+# model.year %>%
+#   summary()
 model.full %>%
   summary()
 
@@ -91,11 +91,11 @@ tab_mod.crude <- model.min %>%
                  # include = upa,
                  add_estimate_to_reference_rows = TRUE,
                  ) %>% bold_labels()
-tab_mod.year <- model.year %>%
-  tbl_regression(exp = TRUE,
-                 # include = upa,
-                 add_estimate_to_reference_rows = TRUE,
-                 ) %>% bold_labels()
+# tab_mod.year <- model.year %>%
+#   tbl_regression(exp = TRUE,
+#                  # include = upa,
+#                  add_estimate_to_reference_rows = TRUE,
+#                  ) %>% bold_labels()
 tab_mod.full <- model.full %>%
   tbl_regression(exp = TRUE,
                  # include = upa,
@@ -105,8 +105,10 @@ tab_mod.full <- model.full %>%
 tab_mod <- tbl_merge(
   list(
     tab_mod.crude,
-    tab_mod.year,
+    # tab_mod.year,
     tab_mod.full
   ),
-  tab_spanner = c("**Crude estimate**", "**Adjusted by Year**", "**Fully adjusted**")
+  tab_spanner = c("**Crude estimate**",
+                  # "**Adjusted by Year**",
+                  "**Fully adjusted**")
 )

@@ -22,3 +22,4 @@ ggsave(filename = "figures/density.png", plot = gg.dens, height = 16, width = 16
 ggsave(filename = "figures/histogram.png", plot = gg.hist, height = 16, width = 16, units = units)
 ggsave(filename = "figures/pop.png", plot = gg.pop, height = height, width = width, units = units)
 ggsave(filename = "figures/rate.png", plot = gg.rate, height = height, width = width, units = units)
+ggsave(filename = "figures/exposure_incidence.png", plot = gridExtra::arrangeGrob(gg.pop, gg.rate, ncol = 2), h = 12, w = 18, units = units)

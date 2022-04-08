@@ -13,6 +13,7 @@ analytical <- analytical %>%
 
 gg <- analytical %>%
   ggplot() +
+  # scale_color_viridis_d() +
   scale_color_brewer(palette = ff.pal) +
   scale_fill_brewer(palette = ff.pal) +
   theme_ff()
@@ -45,7 +46,7 @@ gg.pop <- gg +
     y = "Population (per 10000)",
     color = 'UPA',
     ) +
-  geom_line(aes(year, pop, group = upa, col = upa), size = .7)
+  geom_line(aes(year, pop, group = upa, col = upa), size = 1)
 
 gg.rate <- gg +
   labs(
@@ -54,4 +55,4 @@ gg.rate <- gg +
     color = 'UPA',
     ) +
   scale_y_continuous(limits = c(0, 100)) +
-  geom_line(aes(year, pred, group = upa, col = upa), size = .7)
+  geom_line(aes(year, pred, group = upa, col = upa), size = 1)

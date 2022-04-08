@@ -3,6 +3,11 @@
 
 # tables ------------------------------------------------------------------
 
+analytical$pred <- model.full %>% predict %>% exp # model predictions
+
+pred_2018 <- analytical %>%
+  filter(year == 2018)
+
 # template p-value table
 # tab_inf <- analytical %>%
 #   # select

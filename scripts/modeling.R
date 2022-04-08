@@ -7,33 +7,40 @@ library(broom)
 # library(simputation)
 # library(mice)
 
-# accident count ----------------------------------------------------------
-
-# model.min <- glm(
-#   accidents ~ upa,
-#   analytical, family = "poisson")
-# model.year <- glm(
-#   accidents ~ upa + year,
-#   analytical, family = "poisson")
-# model.full <- glm(
-#   accidents ~ upa + year + pop,
-#   analytical, family = "poisson")
+reset_gtsummary_theme()
+theme_gtsummary_journal("nejm") # separate CI column for tab_mod
+theme_gtsummary_compact()
 
 # accident rate -----------------------------------------------------------
 
-model.min <- vglm(
-  accidents ~ upa -1,
+model.min <- glm(
+  accidents ~ upa,
   offset = log(pop),
-  analytical, family = "pospoisson")
-model.year <- vglm(
-  accidents ~ upa + time -1,
+  analytical, family = "poisson")
+# model.year <- glm(
+#   accidents ~ upa + time,
+#   offset = log(pop),
+#   analytical, family = "poisson")
+model.full <- glm(
+  accidents ~ upa * time,
   offset = log(pop),
-  analytical, family = "pospoisson")
-# to include interaction, consider using dummy variables for upa
-model.full <- vglm(
-  accidents ~ upa + time + pop -1,
-  offset = log(pop),
-  analytical, family = "pospoisson")
+  analytical, family = "poisson")
+
+# accident rate (positive poisson)
+
+# model.min <- vglm(
+#   accidents ~ upa -1,
+#   offset = log(pop),
+#   analytical, family = "pospoisson")
+# model.year <- vglm(
+#   accidents ~ upa + time -1,
+#   offset = log(pop),
+#   analytical, family = "pospoisson")
+# # to include interaction, consider using dummy variables for upa
+# model.full <- vglm(
+#   accidents ~ upa * time -1,
+#   offset = log(pop),
+#   analytical, family = "pospoisson")
 
 # random effects on upa ---------------------------------------------------
 
@@ -55,8 +62,8 @@ model.full <- vglm(
 # number of accidents
 model.min %>%
   summary()
-model.year %>%
-  summary()
+# model.year %>%
+#   summary()
 model.full %>%
   summary()
 
@@ -81,22 +88,27 @@ model.full %>%
 
 tab_mod.crude <- model.min %>%
   tbl_regression(exp = TRUE,
-                 include = upa,
-                 )
-tab_mod.year <- model.year %>%
-  tbl_regression(exp = TRUE,
-                 include = upa,
-                 )
+                 # include = upa,
+                 add_estimate_to_reference_rows = TRUE,
+                 ) %>% bold_labels()
+# tab_mod.year <- model.year %>%
+#   tbl_regression(exp = TRUE,
+#                  # include = upa,
+#                  add_estimate_to_reference_rows = TRUE,
+#                  ) %>% bold_labels()
 tab_mod.full <- model.full %>%
   tbl_regression(exp = TRUE,
-                 include = upa,
-                 )
+                 # include = upa,
+                 add_estimate_to_reference_rows = TRUE,
+                 ) %>% bold_labels()
 
 tab_mod <- tbl_merge(
   list(
     tab_mod.crude,
-    tab_mod.year,
+    # tab_mod.year,
     tab_mod.full
   ),
-  tab_spanner = c("**Crude estimate**", "**Adjusted by Year**", "**Fully adjusted**")
+  tab_spanner = c("**Crude estimate**",
+                  # "**Adjusted by Year**",
+                  "**Fully adjusted**")
 )

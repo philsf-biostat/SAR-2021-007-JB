@@ -1,7 +1,7 @@
 ---
-title: "Incidence rates of scorpion accidents in Urban Planning Areas of Americana/SP in 1998-2018"
+title: "Incidence rates of scorpion accidents in Urban Planning Areas of Americana/SP in 1998--2018"
 subtitle: 'DOCUMENT: SAR-2021-007-JB-v01'
-author: '**From:** Felipe Figueiredo **To:** ___'
+author: '**From:** Felipe Figueiredo **To:** José Brites'
 date: "`r Sys.Date()`"
 output:
   html_document:
@@ -37,7 +37,7 @@ panderOptions('table.split.table', 160)
 
 \newpage
 
-**Incidence rates of scorpion accidents in Urban Planning Areas of Americana/SP in 1998-2018**
+**Incidence rates of scorpion accidents in Urban Planning Areas of Americana/SP in 1998--2018**
 
 **Document version**
 
@@ -58,7 +58,7 @@ kable(history)
 
 ## Objectives
 
-Characterize the Urban Planning Areas and estimate the incidence rates of scorpion accidents of Americana/SP in 1998-2018.
+Describe the incidence rates of scorpion accidents in ten Urban Planning Areas of Americana/SP between 1998 and 2018.
 
 ## Data reception and cleaning
 
@@ -90,6 +90,11 @@ tab_desc %>%
   )
 ```
 
+```{r fig1, fig.cap="**Figure 1** Distribution density of characteristics in ten urban planning areas (UPA) in Americana/SP (1998-2008)."}
+# ![Age](../figures/distr_age.png)
+knitr::include_graphics("../figures/density.png", error = FALSE)
+```
+
 ## Inferential analysis
 
 ```{r tab_inf}
@@ -98,6 +103,11 @@ tab_desc %>%
 #     align = "lccc",
 #     caption = "**Table 2** caption"
 #   )
+```
+
+```{r fig2, fig.cap="**Figure 2** Population in ten urban planning areas (UPA) in Americana/SP (1998-2008)."}
+# ![Age](../figures/distr_age.png)
+knitr::include_graphics("../figures/pop.png", error = FALSE)
 ```
 
 ## Modeling
@@ -110,6 +120,10 @@ tab_mod %>%
   )
 ```
 
+```{r fig3, fig.cap="**Figure 3** Incidence rates of scorpion accidents in ten urban planning areas (UPA) in Americana/SP (1998-2008)."}
+# ![Age](../figures/distr_age.png)
+knitr::include_graphics("../figures/rate.png", error = FALSE)
+```
 
 # Observations and Limitations
 
@@ -117,16 +131,18 @@ tab_mod %>%
 
 # References
 
-- **SAP-2021-007-JB-v01** -- Analytical Plan for Incidence rates of scorpion accidents in Urban Planning Areas of Americana/SP in 1998-2018
+- **SAP-2021-007-JB-v01** -- Analytical Plan for Incidence rates of scorpion accidents in Urban Planning Areas of Americana/SP in 1998--2018
 <!-- - Cohen, J. (1988). Statistical power analysis for the behavioral sciences (2nd Ed.). New York: Routledge. -->
 
 # Appendix
 
 ## Exploratory data analysis
 
-```{r A1, fig.cap="**Figure A1** Distribution of age in the study population."}
+Alternative version of figure 1.
+
+```{r A1, fig.cap="**Figure A1** Distribution of characteristics in ten urban planning areas (UPA) in Americana/SP (1998-2008)."}
 # ![Age](../figures/distr_age.png)
-# knitr::include_graphics("../figures/distr_age.png", error = FALSE)
+knitr::include_graphics("../figures/histogram.png", error = FALSE)
 ```
 
 ## Availability

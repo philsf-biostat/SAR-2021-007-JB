@@ -1,6 +1,6 @@
-# Incidence rates of scorpion accidents in Urban Planning Areas of Americana/SP in 1998-2018
+# Incidence rates of scorpion accidents in Urban Planning Areas of Americana/SP in 1998--2018
 
-Characterize the Urban Planning Areas and estimate the incidence rates of scorpion accidents of Americana/SP in 1998-2018.
+Describe the incidence rates of scorpion accidents in ten Urban Planning Areas of Americana/SP between 1998 and 2018.
 
 Statistical Analysis for José Brites (Secretaria Municipal de Saúde de Americana/SP, 2021).
 

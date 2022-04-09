@@ -1,51 +1,34 @@
 ---
-title: '[title]'
-date: ""
+title: 'Incidence rates of scorpion accidents in Urban Planning Areas of Americana/SP in 1998--2018'
+date: "2022-04-08"
 permalink: /portfolio/SAR-2021-007/
 redirect_from:
   - /portfolio/SAR-2021-007-JB/
   - /SAR-2021-007-JB/
 categories:
-  - case-control
-  - cross-sectional
-  - longitudinal-studies
-  - cohort
-  - clinical-trial
   - ecological
   - epidemiology
-  - bioassay
 tags:
-  - prevalence
   - incidence
-  - diagnostic-models
-  - prognostic-models
-  - survival-analysis
-  - efficacy
-  - concordance-analysis
-  - survey
-  - machine-learning
-  - unsupervised-learning
 ---
 
-Objetivo
+Describe the incidence rates of scorpion accidents in ten Urban Planning Areas of Americana/SP between 1998 and 2018.
 
-Análise Estatística para PESSOA (LOCAL, aaaa)
+Statistical Analysis for José Brites (Secretaria Municipal de Saúde de Americana/SP, 2021).
 
-## Análises realizadas
+## Analyses performed
 
-1. Análise descritiva
-1. Análise inferencial
-1. Análise de poder
-1. Imputação de dados faltantes
-1. Modelagem estatística
+1. Descriptive analysis
+1. Inferential analysis
+1. Statistical models
 
-## Documentos
+## Documents
 
-### Plano Analítico (SAP)
+### Analytical Plan (SAP)
 
 - [PDF][sap]
 
-### Relatório de Análise Estatística (SAR)
+### Statistical Analysis Report (SAR)
 
 - [PDF][sar]
 

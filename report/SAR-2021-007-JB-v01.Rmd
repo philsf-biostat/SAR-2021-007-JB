@@ -96,11 +96,11 @@ They also have a per UPA average of 4.2 informal and 0.9 municipal recycling uni
 tab_desc %>%
   as_kable(
     align = "lccc",
-    caption = "**Table 1** caption"
+    caption = "**Table 1** Geographical characteristics in ten urban planning areas (UPA) in Americana/SP (1998-2008)."
   )
 ```
 
-```{r fig1, fig.cap="**Figure 1** Distribution density of characteristics in ten urban planning areas (UPA) in Americana/SP (1998-2008)."}
+```{r fig1, fig.cap="**Figure 1** Distribution density of geographical characteristics in ten urban planning areas (UPA) in Americana/SP (1998-2008)."}
 # ![Age](../figures/distr_age.png)
 knitr::include_graphics("../figures/density.png", error = FALSE)
 ```

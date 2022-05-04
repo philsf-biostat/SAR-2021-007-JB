@@ -84,15 +84,23 @@ This analysis was performed using statistical software `R` version `r getRversio
 
 ### Urban Planning Areas
 
+The geographical characteristics of the UPAs are described in Table 1 and Figure 1.
+UPAs in Americana have an average of 9.3 km².
+The municipality of Americana/SP has aper UPA average of
+91 km of sewage coverage,
+rainwater flows through 16 km and
+1.9 junkyards.
+They also have a per UPA average of 4.2 informal and 0.9 municipal recycling units.
+
 ```{r tab_desc}
 tab_desc %>%
   as_kable(
     align = "lccc",
-    caption = "**Table 1** caption"
+    caption = "**Table 1** Geographical characteristics in ten urban planning areas (UPA) in Americana/SP (1998-2008)."
   )
 ```
 
-```{r fig1, fig.cap="**Figure 1** Distribution density of characteristics in ten urban planning areas (UPA) in Americana/SP (1998-2008)."}
+```{r fig1, fig.cap="**Figure 1** Distribution density of geographical characteristics in ten urban planning areas (UPA) in Americana/SP (1998-2008)."}
 # ![Age](../figures/distr_age.png)
 knitr::include_graphics("../figures/density.png", error = FALSE)
 ```

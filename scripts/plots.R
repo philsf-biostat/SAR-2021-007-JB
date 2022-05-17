@@ -26,19 +26,21 @@ gg.upa <- upa.raw %>%
   theme_ff() +
   scale_color_brewer(palette = ff.pal) +
   scale_fill_brewer(palette = ff.pal) +
-  xlab("") + ylab("") +
+  xlab("") +
   facet_wrap(~ var, scales = "free", ncol = 3)
 
 # plots -------------------------------------------------------------------
 
 gg.dens <- gg.upa +
   # labs(title = "Distribution densities of UPA characteristics") +
+  ylab("Density") +
   geom_density(fill = ff.col)
 
 # cool facet trick from https://stackoverflow.com/questions/3695497 by JWilliman
 gg.hist <- gg.upa +
   # labs(title = "Distributions of UPA characteristics") +
   scale_y_continuous(labels = scales::label_percent(accuracy = 1)) +
+  ylab("") +
   geom_histogram(bins = 5, aes(y = ..count../tapply(..count.., ..PANEL.., sum)[..PANEL..]), fill = ff.col)
 
 gg.pop <- gg +

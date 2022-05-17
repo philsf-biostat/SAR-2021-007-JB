@@ -96,11 +96,11 @@ They also have a per UPA average of 4.2 informal and 0.9 municipal recycling uni
 tab_desc %>%
   as_kable(
     align = "lccc",
-    caption = "**Table 1** Geographical characteristics in ten urban planning areas (UPA) in Americana/SP (1998-2008)."
+    caption = "**Table 1** Geographical characteristics of Americana/SP across ten urban planning areas (1998-2008)."
   )
 ```
 
-```{r fig1, fig.cap="**Figure 1** Distribution density of geographical characteristics in ten urban planning areas (UPA) in Americana/SP (1998-2008)."}
+```{r fig1, fig.cap="**Figure 1** Distribution density of geographical characteristics of Americana/SP across ten urban planning areas (1998-2008); Area (km²), Burned-out areas (foci), Irregular garbage disposal (areas), Green areas (km²), Hydrography area (km²), Rainwater network (km), Recycling units, Sewage network (km), Squares and leisure areas (m²)."}
 # ![Age](../figures/distr_age.png)
 knitr::include_graphics("../figures/density.png", error = FALSE)
 ```
@@ -230,7 +230,7 @@ There is also limited evidence that population size in each region might play a 
 
 Alternative version of figure 1.
 
-```{r A1, fig.cap="**Figure A1** Distribution of characteristics in ten urban planning areas (UPA) in Americana/SP (1998-2008)."}
+```{r A1, fig.cap="**Figure A1** Distribution density of geographical characteristics of Americana/SP across ten urban planning areas (1998-2008); Area (km²), Burned-out areas (foci), Irregular garbage disposal (areas), Green areas (km²), Hydrography area (km²), Rainwater network (km), Recycling units, Sewage network (km), Squares and leisure areas (m²)."}
 # ![Age](../figures/distr_age.png)
 knitr::include_graphics("../figures/histogram.png", error = FALSE)
 ```

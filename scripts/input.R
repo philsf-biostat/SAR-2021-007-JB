@@ -34,13 +34,14 @@ upa.raw <- upa.raw %>%
     rain = rainwater_network_km,
     green = green_areas_m2,
     garbage = irregular_garbage_disposal_areas,
-    junk = junkyards_units,
+    # junk = junkyards_units,
     burn = burned_out_areas_foci,
-    recycling_inf = informal_recycling_units,
+    # recycling_inf = informal_recycling_units,
     area = urban_territorial_area_km2,
     hydrography = hydrography_m2,
-    railway = railway_lines_meters,
-    recycling_mun = municipal_recycling_centers_units,
+    # railway = railway_lines_meters,
+    # recycling_mun = municipal_recycling_centers_units,
+    square = squares_and_leisure_areas_m2,
   ) %>%
   mutate(upa = as.numeric(str_remove(upa, "UPA-"))) %>%
   # identify UPAs with a cemitery
@@ -70,11 +71,11 @@ upa.raw <- upa.raw %>%
     # set current unit
     green = set_units(green, "m^2"),
     hydrography = set_units(hydrography, "m^2"),
-    railway = set_units(railway, "m"),
+    # railway = set_units(railway, "m"),
     # convert to new unit
     green = as.numeric(set_units(green, "km^2")),
     hydrography = as.numeric(set_units(hydrography, "km^2")),
-    railway = as.numeric(set_units(railway, "km")),
+    # railway = as.numeric(set_units(railway, "km")),
   ) %>%
   mutate(
     upa = factor(upa),
@@ -98,13 +99,15 @@ upa.raw <- upa.raw %>%
     rain = "Rainwater network (km)",
     green = "Green areas (km²)",
     garbage = "Irregular garbage disposal areas",
-    recycling_inf = "Informal recycling units",
-    junk = "Junkyard units",
+    # recycling_inf = "Informal recycling units",
+    # junk = "Junkyard units",
     burn = "Burned-out areas (foci)",
     area = "Area (km²)",
     hydrography = "Hydrography area (km²)",
-    railway = "Railway lines (km)",
-    recycling_mun = "Municipal recycling units",
+    # railway = "Railway lines (km)",
+    # recycling_mun = "Municipal recycling units",
+    square = "Squares and leisure areas (m²)",
+    recycling_units = "Recycling units",
     cemitery = "Presence of a cemitery",
   )
 

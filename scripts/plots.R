@@ -22,6 +22,20 @@ gg <- analytical %>%
 gg.upa <- upa.raw %>%
   select(-cemitery) %>%
   pivot_longer(-upa, names_to = "var", values_to = "val") %>%
+  mutate(
+    var = str_to_upper(var),
+    var = factor(var, levels =str_to_upper(c(
+      "area",
+      "green",
+      "hydrography",
+      "sewage",
+      "rain",
+      "square",
+      "garbage",
+      "recycling_units",
+      "burn"
+    ))),
+  ) %>%
   ggplot(aes(val)) +
   theme_ff() +
   scale_color_brewer(palette = ff.pal) +

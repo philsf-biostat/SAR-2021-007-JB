@@ -32,16 +32,16 @@ upa.raw <- upa.raw %>%
     upa = urban_planning_areas_upa,
     sewage = sewage_system_km,
     rain = rainwater_network_km,
-    green = green_areas_m2,
+    green = green_areas_km2,
     garbage = irregular_garbage_disposal_areas,
     # junk = junkyards_units,
     burn = burned_out_areas_foci,
     # recycling_inf = informal_recycling_units,
     area = urban_territorial_area_km2,
-    hydrography = hydrography_m2,
+    hydrography = hydrography_km2,
     # railway = railway_lines_meters,
     # recycling_mun = municipal_recycling_centers_units,
-    square = squares_and_leisure_areas_m2,
+    square = squares_and_leisure_areas_km2,
   ) %>%
   mutate(upa = as.numeric(str_remove(upa, "UPA-"))) %>%
   # identify UPAs with a cemitery
@@ -69,12 +69,14 @@ upa.raw <- upa.raw %>%
   # Unit conversion
   mutate(
     # set current unit
-    green = set_units(green, "m^2"),
-    hydrography = set_units(hydrography, "m^2"),
+    green = set_units(green, "km^2"),
+    hydrography = set_units(hydrography, "km^2"),
+    square = set_units(square, "km^2"),
     # railway = set_units(railway, "m"),
     # convert to new unit
     green = as.numeric(set_units(green, "km^2")),
     hydrography = as.numeric(set_units(hydrography, "km^2")),
+    square = as.numeric(set_units(square, "km^2")),
     # railway = as.numeric(set_units(railway, "km")),
   ) %>%
   mutate(

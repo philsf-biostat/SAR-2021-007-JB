@@ -54,15 +54,39 @@ upa.raw <- upa.raw %>%
 
 # data wrangling ----------------------------------------------------------
 
+baseline <- data.raw %>%
+  filter(year==1998) %>%
+  rename(
+    baseline_counts=accidents,
+    baseline_pop=pop,
+  ) %>%
+  select(-year)
+
+baseline
+
+# move baseline counts from outcome to covariate
+# data.raw <- 
+data.raw %>%
+  filter(year!=1998) %>%
+# data.raw %>%
+  left_join(baseline, by="upa")
+
 data.raw <- data.raw %>%
   mutate(
     upa = factor(upa),
-    # set 10 as reference level
-    upa = relevel(upa, 10),
     accidents = as.integer(accidents),
-    pop = pop/10000,
+    # pop = pop/10000,
     time = year - min(year) + 1, # recenter to start at 1
     # year = factor(year),
+  ) %>%
+  # Reference UPA: lowest count at start of the period
+  # analytical %>% filter(year==1998) %>% arrange(accidents) # UPA10 has the min start count
+  mutate(
+    # # set 10 as reference level
+    # upa = relevel(upa, 10),
+    # optional: arrange UPAs by order of accidents at start of period
+    # upa = fct_relevel(upa, "10", "1", "3", "8", "9", "2", "4", "5", "7", "6"),
+    upa = fct_relevel(upa, "10"),
   )
 
 upa.raw <- upa.raw %>%

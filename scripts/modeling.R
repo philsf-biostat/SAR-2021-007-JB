@@ -1,5 +1,6 @@
 # setup -------------------------------------------------------------------
 library(VGAM)
+# library(MASS)
 # library(moderndive)
 library(broom)
 # library(lmerTest)
@@ -14,16 +15,16 @@ theme_gtsummary_compact()
 # accident rate -----------------------------------------------------------
 
 model.min <- glm(
-  accidents ~ upa,
-  offset = log(pop),
+  accidents ~ upa + offset(log(pop)),
+  # offset = log(pop),
   analytical, family = "poisson")
 # model.year <- glm(
 #   accidents ~ upa + time,
 #   offset = log(pop),
 #   analytical, family = "poisson")
 model.full <- glm(
-  accidents ~ upa * time,
-  offset = log(pop),
+  accidents ~ upa * time + offset(log(pop)),
+  # offset = log(pop),
   analytical, family = "poisson")
 
 # accident rate (positive poisson)
@@ -56,6 +57,50 @@ model.full <- glm(
 #   accidents ~ upa + time + pop + ( time + pop -1| upa) -1,
 #   offset = log(pop),
 #   analytical, family = poisson)
+
+# model.min <- glmer(accidents ~ upa + (1|upa) + offset(log(pop)), analytical, family = poisson)
+
+# model.full <- glmer(accidents ~ upa*time + (1|upa) + offset(log(pop)), analytical, family = poisson)
+# 
+# model.full %>% summary()
+
+# library(AER)
+AER::dispersiontest(model.full)
+
+# model.final <- glmer.nb(accidents ~ upa*time + (1|upa) + offset(log(pop)), data.raw, family = nbinom2)
+# 
+# model.final %>% summary()
+
+# Negative Binomial -------------------------------------------------------
+
+
+# glm.nb(accidents ~ upa + offset(log(pop)), analytical) %>% summary()
+
+model.final <- MASS::glm.nb(accidents ~ upa*time + offset(log(pop)), analytical)
+
+model.final %>% summary()
+
+tab <- model.final %>%
+  tbl_regression(exp=TRUE, pvalue_fun = label_style_pvalue(digits=3)) %>%
+  remove_abbreviation("IRR = Incidence Rate Ratio") %>%
+  modify_header(estimate ~ "**RR**") %>%
+  modify_abbreviation("RR = Risk Ratio")
+
+tab %>% bold_p()
+
+# Binomial log link -------------------------------------------------------
+
+# analytical <- analytical %>% mutate(safes = pop-accidents)
+
+# should we use offset/risk instead of counts for this approach?
+
+# glm(cbind(accidents, pop-accidents) ~ upa*time, family = binomial("log"), data = analytical) %>% summary()
+
+# glm(cbind(accidents, pop-accidents) ~ upa*time, family = binomial("log"), data = analytical) %>% tbl_regression(exp=TRUE) %>% bold_p()
+
+# glm(cbind(accidents, pop-accidents) ~ upa*time + offset(log(pop)), family = binomial("log"), data = analytical) %>% summary()
+
+# glm(cbind(accidents, pop-accidents) ~ upa*time + offset(log(pop)), family = binomial("log"), data = analytical) %>% tbl_regression(exp=TRUE) %>% bold_p()
 
 # diagnostics -------------------------------------------------------------
 

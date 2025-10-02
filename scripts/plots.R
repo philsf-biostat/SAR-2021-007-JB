@@ -60,10 +60,13 @@ gg.hist <- gg.upa +
 gg.pop <- gg +
   labs(
     x = NULL,
-    y = "Population (per 10000)",
+    y = "Population",
     color = 'UPA',
     ) +
-  geom_line(aes(year, pop, group = upa, col = upa), size = 1)
+  scale_y_continuous(labels = style_number) +
+  geom_line(aes(year, pop, group = upa, col = upa), lwd = 1)
+
+gg.pop
 
 gg.rate <- gg +
   labs(
@@ -72,19 +75,47 @@ gg.rate <- gg +
     color = 'UPA',
     ) +
   scale_y_continuous(limits = c(0, 100)) +
-  geom_line(aes(year, pred, group = upa, col = upa), size = 1)
+  geom_line(aes(year, pred, group = upa, col = upa), lwd = 1)
+
+# Plot the calculated RRs over time
+gg.rr <- gg +
+  aes(x = year, y = rr, group = upa, color = upa) +
+  geom_line(lwd = 1) +
+  geom_hline(yintercept = 1, linetype = "dashed", color = "black") +
+  labs(
+    # title = "Predicted Risk Ratios (RRs) Over Time",
+    # x = "Year",
+    x = "",
+    y = "Risk Ratio (RR)",
+    color = "UPA"
+  )
+
+gg.rr
 
 gg.pop <- gg.pop %>% direct.label(method = "right.polygons")
-gg.rate <- gg.rate %>% direct.label(method = "right.polygons")
+# gg.rate <- gg.rate %>% direct.label(method = "right.polygons")
+gg.rr <- gg.rr  %>% direct.label(method = "right.polygons")
+
+
+gg.totals <- analytical %>%
+  group_by(year) %>%
+  summarise(accidents=sum(accidents)) %>%
+  ggplot(aes(year, accidents)) +
+  geom_col(fill="steelblue", ) +
+  theme_ff() +
+  labs(x="", y="Number of accidents") +
+  scale_x_continuous(breaks = 1998:2018) + theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+gg.totals
 
 # gridExtra::grid.arrange(
 #   gg.pop,
-#   gg.rate,
+#   gg.rr,
 #   ncol = 2
 # )
 
 # gridExtra::grid.arrange(
 #   gg.pop %>% direct.label(method = "right.polygons"),
-#   gg.rate %>% direct.label(method = "right.polygons"),
+#   gg.rr  %>% direct.label(method = "right.polygons"),
 #   ncol = 2
 # )

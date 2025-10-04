@@ -63,6 +63,7 @@ gg.pop <- gg +
     y = "Population",
     color = 'UPA',
     ) +
+  scale_x_continuous(breaks = seq(1998, 2018, 5)) +
   scale_y_continuous(labels = style_number) +
   geom_line(aes(year, pop, group = upa, col = upa), lwd = 1)
 
@@ -82,6 +83,7 @@ gg.rr <- gg +
   aes(x = year, y = rr, group = upa, color = upa) +
   geom_line(lwd = 1) +
   geom_hline(yintercept = 1, linetype = "dashed", color = "black") +
+  scale_x_continuous(breaks = seq(1998, 2018, 5)) +
   labs(
     # title = "Predicted Risk Ratios (RRs) Over Time",
     # x = "Year",
